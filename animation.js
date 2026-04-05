@@ -108,6 +108,40 @@ featureNums.forEach((el) => {
 });
 
 
+// aboutセクション スクロールアニメーション
+const aboutLabel = document.querySelector('.about__label');
+const aboutTitle = document.querySelector('.about__title');
+const aboutDesc = document.querySelector('.about__desc');
+const aboutImg = document.querySelector('.about__img');
+
+if (aboutLabel) {
+  // テキストの行ごと時間差フェードイン（下から）
+  gsap.from([aboutLabel, aboutTitle, aboutDesc], {
+    y: 24,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power2.out',
+    stagger: 0.2,
+    scrollTrigger: {
+      trigger: aboutLabel,
+      start: 'top 80%',
+    },
+  });
+
+  // 画像は右からスライドしながらフェードイン
+  gsap.from(aboutImg, {
+    x: 60,
+    opacity: 0,
+    duration: 0.9,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: aboutImg,
+      start: 'top 80%',
+    },
+  });
+}
+
+
 // storyセクション スクロールアニメーション
 const storyItems = document.querySelectorAll('.story__item');
 
