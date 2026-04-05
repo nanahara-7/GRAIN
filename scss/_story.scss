@@ -147,15 +147,15 @@
   }
 
   &__card-desc {
-    font-size: clamp(14px, 1.4vw, 18px);
+    font-size: clamp(14px, 1.5vw, 18px);
     font-weight: 600;
-    color: $color-charcoal;
+    color: $color-text-gray;
     line-height: 1.9;
     text-wrap: balance;
 
     @include sp {
-      font-size: clamp(13px, 4.1vw, 17px);
-      color: $color-slate;
+      font-size: clamp(13px, 4vw, 16px);
+      color: $color-text-gray;
     }
   }
 
