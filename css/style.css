@@ -776,6 +776,28 @@ a {
   }
 }
 
+.about__wave {
+  width: 100%;
+  margin-top: -3px;
+  margin-bottom: -4px;
+  line-height: 0;
+  background-color: #F2E2D0;
+}
+.about__wave img {
+  width: 100%;
+  display: block;
+}
+@media (max-width: 767px) {
+  .about__wave {
+    overflow: visible;
+  }
+  .about__wave img {
+    -webkit-transform: scaleY(1.8);
+            transform: scaleY(1.8);
+    -webkit-transform-origin: bottom;
+            transform-origin: bottom;
+  }
+}
 .about {
   background-color: #ffffff;
   padding: clamp(40px, 6vw, 80px) 0;
