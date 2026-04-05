@@ -582,10 +582,10 @@ a {
 }
 .story__wave {
   width: 100%;
-  margin-top: -2px;
-  margin-bottom: -1px;
+  margin-top: -3px;
+  margin-bottom: -2px;
   line-height: 0;
-  background-color: #F2E2D0;
+  background-color: #EDE8E0;
 }
 .story__wave img {
   width: 100%;
