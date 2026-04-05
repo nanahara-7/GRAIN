@@ -1,0 +1,174 @@
+// ==========================================================================
+// Block: hero
+// ==========================================================================
+@use "variables" as *;
+
+.hero {
+  background-color: $color-warm-beige;
+  height: 680px;
+
+  @include sp {
+    height: 910px;
+  }
+
+  &__inner {
+    max-width: 1440px;
+    min-height: 600px;
+    margin: 0 auto;
+    padding: $spacing-lg clamp($spacing-md, 4vw, $spacing-xl) $spacing-xxl;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: clamp(23px, 2vw, 26px);
+
+    @include tab {
+      padding: $spacing-lg $spacing-xxl $spacing-xxl;
+    }
+
+    @include pc {
+      padding: $spacing-lg clamp($spacing-xl, 8vw, 120px) $spacing-xxl;
+      gap: $spacing-xl;
+    }
+
+    @include sp {
+      flex-direction: column-reverse;
+      padding: 36px 25px 32px;
+      height: auto;
+    }
+  }
+
+  &__content {
+    flex: 1.2;
+
+    @include sp {
+      width: 100%;
+      text-align: center;
+    }
+  }
+
+  &__label {
+    font-family: $font-family-en;
+    font-size: clamp(14px, 2.5vw, 20px);
+    font-weight: 600;
+    color: $color-charcoal;
+    margin-bottom: $spacing-md;
+
+    @include pc {
+      font-size: clamp(20px, 2vw, 24px);
+    }
+  }
+
+  &__title {
+    font-size: clamp(24px, 3vw, 36px);
+    font-weight: 700;
+    line-height: 1.5;
+    margin-bottom: $spacing-lg;
+
+    @include pc {
+      font-size: clamp(36px, 4.5vw, 52px);
+    }
+
+    @include sp {
+      font-size: 32px;
+    }
+  }
+
+  &__desc {
+    font-size: clamp(14px, 1.6vw, 18px);
+    color: $color-text-gray;
+    line-height: 1.9;
+    margin-bottom: $spacing-xl;
+    text-wrap: balance;
+
+    @include pc {
+      font-size: clamp(16px, 1.5vw, 20px);
+    }
+
+    @include sp {
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  &__btn {
+    gap: $spacing-sm;
+    padding: clamp(10px, 1.5vw, 14px) clamp(16px, 2.5vw, 28px);
+    font-size: clamp(14px, 2vw, 18px);
+
+    @include sp {
+      display: inline-flex;
+      justify-content: center;
+    }
+
+    @include sp-sm {
+      justify-content: center;
+    }
+  }
+
+  &__wave {
+    width: 100%;
+    margin-top: -122px;
+    margin-bottom: -1px;
+    line-height: 0;
+
+    @include sp {
+      margin-top: -46px;
+    }
+
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
+
+  &__image {
+    flex: 1;
+    aspect-ratio: 680 / 580;
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+
+    @include sp {
+      order: 1;
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 1 / 1;
+      padding-top: 20px;
+      border-radius: 12px;
+      margin-bottom: $spacing-lg;
+    }
+
+    @include sp-sm {
+      order: 1;
+      width: 100%;
+      max-width: 316px;
+      aspect-ratio: 1 / 1;
+      padding-top: 20px;
+      border-radius: 12px;
+      margin-bottom: $spacing-lg;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+
+    &--active {
+      opacity: 1;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

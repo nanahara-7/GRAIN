@@ -1,0 +1,90 @@
+// ==========================================================================
+// Block: feature
+// ==========================================================================
+@use 'variables' as *;
+
+.feature {
+  padding: $spacing-xxl 0;
+  background-color: $color-white;
+  height: 660px;
+
+  @include sp {
+    height: 980px;
+  }
+
+  &__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp($spacing-xl, 8vw, 120px);
+  }
+
+  &__title {
+    text-align: center;
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: 700;
+    margin-bottom: clamp(40px, 5vw, 70px);
+
+    @include sp {
+      margin-bottom: 35px;
+    }
+
+    &-accent {
+      color: $color-terracotta;
+    }
+  }
+
+  &__list {
+    display: flex;
+    list-style: none;
+
+    @include sp {
+      flex-direction: column;
+      gap: 0;
+    }
+  }
+
+  &__item {
+    flex: 1;
+    text-align: center;
+    padding: 0 $spacing-xl;
+
+    & + & {
+      border-left: 1px solid $color-border;
+    }
+
+    @include sp {
+      padding: $spacing-xl 0;
+
+      & + & {
+        border-left: none;
+        border-top: 1px solid $color-border;
+      }
+    }
+  }
+
+  &__item-label {
+    font-size: clamp(13px, 1.2vw, 15px);
+    color: $color-text-gray;
+    margin-bottom: $spacing-md;
+  }
+
+  &__item-num {
+    font-family: $font-family-en;
+    font-size: clamp(14px, 1.6vw, 20px);
+    color: $color-terracotta;
+    margin-bottom: $spacing-md;
+
+    &-text {
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 700;
+    }
+  }
+
+  &__item-desc {
+    font-size: clamp(14px, 1.2vw, 18px);
+    color: $color-text-gray;
+    line-height: 1.9;
+    text-align: center;
+    text-wrap: balance;
+  }
+}

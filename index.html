@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>GRAIN</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__inner">
+        <h1 class="header__logo">GRAIN</h1>
+        <!-- /.header__logo -->
+
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li><a href="#">ホーム</a></li>
+            <li><a href="#">メニュー</a></li>
+            <li><a href="#">お知らせ</a></li>
+            <li><a href="#">アクセス</a></li>
+          </ul>
+          <a href="#" class="btn btn--primary header__contact-btn">お問い合わせ</a>
+        </nav>
+        <!-- /.header__nav -->
+
+        <!-- ハンバーガーボタン（SP用） -->
+        <button class="header__hamburger" type="button" aria-label="メニューを開く" aria-expanded="false">
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span></button
+        ><!-- /.header__hamburger -->
+      </div>
+      <!-- /.header__inner -->
+    </header>
+
+    <!-- ドロワーメニュー（SP用） -->
+    <div class="drawer">
+      <button class="drawer__close" type="button" aria-label="メニューを閉じる">×</button>
+      <p class="drawer__logo">GRAIN</p>
+      <nav class="drawer__nav">
+        <ul class="drawer__nav-list">
+          <li><a href="#" class="drawer__nav-item">ホーム</a></li>
+          <li><a href="#" class="drawer__nav-item">メニュー</a></li>
+          <li><a href="#" class="drawer__nav-item">お知らせ</a></li>
+          <li><a href="#" class="drawer__nav-item">アクセス</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="drawer__contact-btn">お問い合わせ <span>→</span></a>
+      <!-- /.drawer__nav -->
+    </div>
+    <!-- /.drawer -->
+
+    <!-- オーバーレイ -->
+    <div class="overlay"></div>
+
+    <section class="hero">
+      <div class="hero__inner">
+        <div class="hero__content">
+          <p class="hero__label">Bakery Cafe</p>
+          <div class="hero__title">毎朝焼きたて<br />少し特別なひととき</div>
+          <!-- /.hero__title -->
+          <p class="hero__desc">北海道産小麦にこだわったベーカリーカフェGRAINです。毎朝丁寧に焼き上げたパンをお届けします。</p>
+          <!-- /.hero__desc -->
+          <a href="#" class="btn btn--primary hero__btn">メニューを見る <span class="btn__arrow">→</span></a>
+        </div>
+        <!-- /.hero__content -->
+
+        <div class="hero__image">
+          <div class="hero__slide hero__slide--active">
+            <img src="img/hero.jpg" alt="焼きたてのパンが並ぶベーカリーカフェの様子" />
+          </div>
+          <div class="hero__slide">
+            <img src="img/hero2.jpg" alt="ベーカリーカフェの店内の様子" />
+          </div>
+          <div class="hero__slide">
+            <img src="img/hero3.jpg" alt="焼きたてのパン" />
+          </div>
+        </div>
+        <!-- /.hero__image -->
+      </div>
+      <!-- /.hero__inner -->
+    </section>
+
+    <div class="hero__wave">
+      <img src="img/svg/Rectangle 2.svg" alt="" />
+    </div>
+    <!-- /.hero__wave -->
+
+    <!-- こだわりセクション -->
+    <section class="feature">
+      <div class="feature__inner">
+        <h2 class="feature__title"><span class="feature__title-accent">素材</span>と<span class="feature__title-accent">焼きたて</span>に、こだわり続ける</h2>
+        <ul class="feature__list">
+          <li class="feature__item">
+            <p class="feature__item-label">毎日の焼き上げ</p>
+            <p class="feature__item-num"><span class="feature__item-num-text">5</span>回</p>
+            <p class="feature__item-desc">朝から夕方まで、<br />焼き立てをお届けします。</p>
+          </li>
+          <!-- /.feature__item -->
+          <li class="feature__item">
+            <p class="feature__item-label">メニュー数</p>
+            <p class="feature__item-num"><span class="feature__item-num-text">30</span>種類以上</p>
+            <p class="feature__item-desc">定番から季節限定まで<br />豊富なラインナップ。</p>
+          </li>
+          <!-- /.feature__item -->
+          <li class="feature__item">
+            <p class="feature__item-label">無添加</p>
+            <p class="feature__item-num"><span class="feature__item-num-text">0</span></p>
+            <p class="feature__item-desc">保存料・着色料は<br />一切使用していません。</p>
+          </li>
+          <!-- /.feature__item -->
+        </ul>
+        <!-- /.feature__list -->
+      </div>
+      <!-- /.feature__inner -->
+    </section>
+
+    <div class="menu__wave">
+      <img src="img/svg/Rectangle 6.svg" alt="" />
+    </div>
+
+    <!-- メニューセクション -->
+    <section class="menu">
+      <div class="menu__inner">
+        <p class="menu__label">Menu</p>
+        <h2 class="menu__title">こだわりのベーカリーメニュー</h2>
+        <div class="menu__slider">
+          <ul class="menu__track">
+            <li class="menu__item">
+              <a href="#" class="menu__card">
+                <div class="menu__card-img">
+                  <img src="img/menu-croissant.jpg" alt="焼きたてクロワッサン" />
+                </div>
+                <div class="menu__card-body">
+                  <p class="menu__card-name">焼きたてクロワッサン</p>
+                  <p class="menu__card-price">¥280</p>
+                </div>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__card">
+                <div class="menu__card-img">
+                  <img src="img/menu-shokupan.jpg" alt="北海道産小麦の食パン" />
+                </div>
+                <div class="menu__card-body">
+                  <p class="menu__card-name">北海道産小麦の食パン</p>
+                  <p class="menu__card-price">¥380</p>
+                </div>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__card">
+                <div class="menu__card-img">
+                  <img src="img/menu-muffin.jpg" alt="ブルーベリーマフィン" />
+                </div>
+                <div class="menu__card-body">
+                  <p class="menu__card-name">ブルーベリーマフィン</p>
+                  <p class="menu__card-price">¥220</p>
+                </div>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__card">
+                <div class="menu__card-img">
+                  <img src="img/menu-latte.jpg" alt="自家製カフェラテ" />
+                </div>
+                <div class="menu__card-body">
+                  <p class="menu__card-name">自家製カフェラテ</p>
+                  <p class="menu__card-price">¥480</p>
+                </div>
+              </a>
+            </li>
+            <li class="menu__item">
+              <a href="#" class="menu__card">
+                <div class="menu__card-img">
+                  <img src="img/menu-creampan.jpg" alt="クリームパン" />
+                </div>
+                <div class="menu__card-body">
+                  <p class="menu__card-name">クリームパン</p>
+                  <p class="menu__card-price">¥320</p>
+                </div>
+              </a>
+            </li>
+            <!-- 無限ループ用の複製 -->
+            <li class="menu__item" aria-hidden="true">
+              <a href="#" class="menu__card">
+                <div class="menu__card-img">
+                  <img src="img/menu-croissant.jpg" alt="" />
+                </div>
+                <div class="menu__card-body">
+                  <p class="menu__card-name">焼きたてクロワッサン</p>
+                  <p class="menu__card-price">¥280</p>
+                </div>
+              </a>
+            </li>
+            <li class="menu__item" aria-hidden="true">
+              <a href="#" class="menu__card">
+                <div class="menu__card-img">
+                  <img src="img/menu-shokupan.jpg" alt="" />
+                </div>
+                <div class="menu__card-body">
+                  <p class="menu__card-name">北海道産小麦の食パン</p>
+                  <p class="menu__card-price">¥380</p>
+                </div>
+              </a>
+            </li>
+            <li class="menu__item" aria-hidden="true">
+              <a href="#" class="menu__card">
+                <div class="menu__card-img">
+                  <img src="img/menu-muffin.jpg" alt="" />
+                </div>
+                <div class="menu__card-body">
+                  <p class="menu__card-name">ブルーベリーマフィン</p>
+                  <p class="menu__card-price">¥220</p>
+                </div>
+              </a>
+            </li>
+            <li class="menu__item" aria-hidden="true">
+              <a href="#" class="menu__card">
+                <div class="menu__card-img">
+                  <img src="img/menu-latte.jpg" alt="" />
+                </div>
+                <div class="menu__card-body">
+                  <p class="menu__card-name">自家製カフェラテ</p>
+                  <p class="menu__card-price">¥480</p>
+                </div>
+              </a>
+            </li>
+            <li class="menu__item" aria-hidden="true">
+              <a href="#" class="menu__card">
+                <div class="menu__card-img">
+                  <img src="img/menu-creampan.jpg" alt="" />
+                </div>
+                <div class="menu__card-body">
+                  <p class="menu__card-name">クリームパン</p>
+                  <p class="menu__card-price">¥320</p>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.menu__slider -->
+        <div class="menu__btn-wrap">
+          <a href="#" class="btn btn--primary">メニューをすべて見る <span class="btn__arrow">→</span></a>
+        </div>
+        <!-- /.menu__btn-wrap -->
+      </div>
+      <!-- /.menu__inner -->
+    </section>
+
+    <div class="story__wave">
+      <img src="img/svg/wave-story.svg" alt="" />
+    </div>
+
+    <!-- ストーリーセクション -->
+    <section class="story">
+      <div class="story__inner">
+        <p class="story__label">Our Story</p>
+        <h2 class="story__title">GRAINのこだわり</h2>
+
+        <ul class="story__list">
+
+          <!-- 01 -->
+          <li class="story__item">
+            <div class="story__card">
+              <p class="story__card-num"><span class="story__card-num-digit">01</span>.<span class="story__card-num-en">Ingredients</span></p>
+              <h3 class="story__card-title">素材へのこだわり</h3>
+              <p class="story__card-desc">北海道産の小麦粉を使用し、一つ一つ丁寧に仕込みます素材の味を最大限に活かしたシンプルで豊かな味わいをお届けします。</p>
+            </div>
+            <div class="story__img">
+              <img src="img/story-1-ingredients.jpg" alt="小麦粉と麦の穂" />
+            </div>
+          </li>
+          <!-- /.story__item -->
+
+          <!-- 02 -->
+          <li class="story__item story__item--reverse">
+            <div class="story__img">
+              <img src="img/story-2-baking.jpg" alt="オーブンで焼かれるパン" />
+            </div>
+            <div class="story__card">
+              <p class="story__card-num"><span class="story__card-num-digit">02</span>.<span class="story__card-num-en">Baking</span></p>
+              <h3 class="story__card-title">焼きたてへのこだわり</h3>
+              <p class="story__card-desc">毎日5回の焼き上げで常に焼きたてをお届けします。店内に漂うパンの香りとサクサクの食感をお楽しみください。</p>
+            </div>
+          </li>
+          <!-- /.story__item -->
+
+          <!-- 03 -->
+          <li class="story__item">
+            <div class="story__card">
+              <p class="story__card-num"><span class="story__card-num-digit">03</span>.<span class="story__card-num-en">Space</span></p>
+              <h3 class="story__card-title">空間へのこだわり</h3>
+              <p class="story__card-desc">日常の中に少し特別なひとときを木のぬくもりと自然光を活かした落ち着いた空間でゆっくりとお過ごしください。</p>
+            </div>
+            <div class="story__img">
+              <img src="img/story-3-space.jpg" alt="カフェの内観" />
+            </div>
+          </li>
+          <!-- /.story__item -->
+
+        </ul>
+        <!-- /.story__list -->
+      </div>
+      <!-- /.story__inner -->
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="animation.js"></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+// ==========================================================================
+// Component: btn
+// ==========================================================================
+@use 'variables' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 28px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+
+  &__arrow {
+    margin-left: 6px;
+    font-weight: 700;
+  }
+
+  // -- Modifier: primary
+  &--primary {
+    padding: 10px 28px;
+    background-color: $color-terracotta;
+    color: $color-white;
+    border: 1.5px solid $color-terracotta;
+
+    &:hover {
+      background-color: transparent;
+      color: $color-terracotta;
+    }
+  }
+}
