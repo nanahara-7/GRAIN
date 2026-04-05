@@ -1,5 +1,7 @@
 
 // GSAP Animations
+gsap.registerPlugin(ScrollTrigger);
+
 
 // メニュースライダー
 const menuTrack = document.querySelector('.menu__track');
@@ -54,3 +56,41 @@ kenBurns(slides[0]);
 
 // 5秒ごとに切り替え
 setInterval(nextSlide, 5000);
+
+
+// storyセクション スクロールアニメーション
+const storyItems = document.querySelectorAll('.story__item');
+
+storyItems.forEach((item) => {
+  const card = item.querySelector('.story__card');
+  const img = item.querySelector('.story__img');
+  const isReverse = item.classList.contains('story__item--reverse');
+
+  // カードの方向（reverseなら右から、通常は左から）
+  const cardX = isReverse ? 60 : -60;
+  // 画像の方向（reverseなら左から、通常は右から）
+  const imgX = isReverse ? -60 : 60;
+
+  gsap.from(card, {
+    x: cardX,
+    opacity: 0,
+    duration: 0.9,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: item,
+      start: 'top 80%',
+    },
+  });
+
+  gsap.from(img, {
+    x: imgX,
+    opacity: 0,
+    duration: 0.9,
+    ease: 'power2.out',
+    delay: 0.15,
+    scrollTrigger: {
+      trigger: item,
+      start: 'top 80%',
+    },
+  });
+});
