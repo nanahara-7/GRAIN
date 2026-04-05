@@ -58,6 +58,56 @@ kenBurns(slides[0]);
 setInterval(nextSlide, 5000);
 
 
+// featureセクション カウントアップアニメーション
+const featureNums = document.querySelectorAll('.feature__item-num-text');
+
+featureNums.forEach((el) => {
+  const target = parseInt(el.textContent, 10);
+  const numEl = el.closest('.feature__item-num');
+
+  // 下からフェードイン
+  gsap.from(numEl, {
+    y: 24,
+    opacity: 0,
+    duration: 0.7,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: numEl,
+      start: 'top 85%',
+    },
+  });
+
+  if (target === 0) {
+    // 0はバウンスで表示
+    gsap.from(el, {
+      scale: 1.4,
+      duration: 0.6,
+      ease: 'back.out(2)',
+      scrollTrigger: {
+        trigger: numEl,
+        start: 'top 85%',
+      },
+    });
+    return;
+  }
+
+  // カウントアップ（加速しながら目標値へ）
+  const counter = { val: 0 };
+  gsap.to(counter, {
+    val: target,
+    duration: 1.8,
+    ease: 'power2.in',
+    onUpdate: () => {
+      el.textContent = Math.ceil(counter.val);
+    },
+    scrollTrigger: {
+      trigger: numEl,
+      start: 'top 85%',
+    },
+  });
+});
+
+
 // storyセクション スクロールアニメーション
 const storyItems = document.querySelectorAll('.story__item');
 
