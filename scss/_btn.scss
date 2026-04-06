@@ -7,10 +7,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 28px;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
+  border-radius: 48px;
+  white-space: nowrap;
   cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
 
   &__arrow {
     margin-left: 6px;
@@ -19,13 +19,15 @@
 
   // -- Modifier: primary
   &--primary {
-    padding: 10px 28px;
+    padding: clamp(8px, 1vw, 12px) clamp(24px, 4vw, 56px);
+    font-size: clamp(14px, 1.5vw, 18px);
+    font-weight: 700;
     background-color: $color-terracotta;
     color: $color-white;
     border: 1.5px solid $color-terracotta;
 
     &:hover {
-      background-color: transparent;
+      background-color: $color-white;
       color: $color-terracotta;
     }
   }
