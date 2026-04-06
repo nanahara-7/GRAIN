@@ -1,0 +1,171 @@
+// ==========================================================================
+// Block: news
+// ==========================================================================
+@use 'variables' as *;
+
+.news {
+
+  &__wave {
+    width: 100%;
+    margin-top: -3px;
+    margin-bottom: -2px;
+    line-height: 0;
+    background-color: $color-white;
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    @include sp {
+      overflow: visible;
+
+      img {
+        transform: scaleY(1.8);
+        transform-origin: bottom;
+      }
+    }
+  }
+
+  background-color: $color-warm-beige;
+  padding: clamp(40px, 6vw, 80px) 0;
+
+  &__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp($spacing-xl, 8vw, 140px);
+  }
+
+  &__heading {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+    margin-bottom: clamp(40px, 5vw, 70px);
+  }
+
+  &__label {
+    font-family: $font-family-en;
+    font-size: clamp(16px, 1.5vw, 24px);
+    font-weight: 700;
+    color: $color-terracotta;
+  }
+
+  &__title {
+    font-size: clamp(20px, 2.5vw, 32px);
+    font-weight: 700;
+    color: $color-charcoal;
+  }
+
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid $color-border;
+    margin-bottom: clamp(32px, 4vw, 56px);
+  }
+
+  &__item {
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__card {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    padding: 24px 0;
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.75;
+    }
+
+    @include sp {
+      flex-direction: column;
+      gap: 16px;
+    }
+  }
+
+  &__card-img {
+    width: clamp(160px, 25%, 330px);
+    flex-shrink: 0;
+    aspect-ratio: 3 / 2;
+    border-radius: 8px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    @include sp {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  &__card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__card-title {
+    font-size: clamp(16px, 1.5vw, 20px);
+    font-weight: 600;
+    color: $color-charcoal;
+    line-height: 1.5;
+  }
+
+  &__card-desc {
+    font-size: clamp(14px, 1.5vw, 18px);
+    color: $color-text-gray;
+    line-height: 1.8;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  &__card-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  &__card-date {
+    font-size: 14px;
+    font-weight: 700;
+    color: $color-text-gray;
+  }
+
+  &__card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+  }
+
+  &__card-tag {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 0;
+    min-width: 88px;
+    text-align: center;
+    border-radius: 4px;
+
+    &--primary {
+      background-color: $color-terracotta;
+      color: $color-white;
+    }
+  }
+
+  &__btn-wrap {
+    text-align: center;
+  }
+}

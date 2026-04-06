@@ -1,0 +1,53 @@
+// ==========================================================================
+// Block: contact
+// ==========================================================================
+@use 'variables' as *;
+
+.contact {
+  background-color: $color-charcoal;
+  padding: clamp(48px, 7vw, 96px) 0;
+  text-align: center;
+
+  &__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp($spacing-xl, 8vw, 140px);
+  }
+
+  &__label {
+    font-family: $font-family-en;
+    font-size: clamp(16px, 1.5vw, 24px);
+    font-weight: 700;
+    color: $color-white;
+    margin-bottom: $spacing-md;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $color-white;
+    }
+  }
+
+  &__title {
+    font-size: clamp(20px, 2.5vw, 32px);
+    font-weight: 700;
+    color: $color-white;
+    margin-bottom: $spacing-lg;
+  }
+
+  &__desc {
+    font-size: clamp(14px, 1.5vw, 16px);
+    font-weight: 500;
+    color: $color-white;
+    line-height: 1.9;
+    margin-bottom: clamp(32px, 4vw, 48px);
+    display: flex;
+    justify-content: center;
+  }
+}
