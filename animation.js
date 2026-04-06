@@ -108,6 +108,38 @@ featureNums.forEach((el) => {
 });
 
 
+// newsセクション スクロールアニメーション
+const newsHeading = document.querySelector('.news__heading');
+const newsItems = document.querySelectorAll('.news__item');
+
+if (newsHeading) {
+  // 見出しが先にフェードイン
+  gsap.from(newsHeading, {
+    y: 24,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: newsHeading,
+      start: 'top 80%',
+    },
+  });
+
+  // カードが1枚ずつ時間差で下からフェードイン
+  gsap.from(newsItems, {
+    y: 32,
+    opacity: 0,
+    duration: 0.7,
+    ease: 'power2.out',
+    stagger: 0.15,
+    scrollTrigger: {
+      trigger: newsItems[0],
+      start: 'top 80%',
+    },
+  });
+}
+
+
 // aboutセクション スクロールアニメーション
 const aboutLabel = document.querySelector('.about__label');
 const aboutTitle = document.querySelector('.about__title');
