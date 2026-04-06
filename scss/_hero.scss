@@ -92,10 +92,6 @@
   }
 
   &__btn {
-    gap: $spacing-sm;
-    padding: clamp(10px, 1.5vw, 14px) clamp(16px, 2.5vw, 28px);
-    font-size: clamp(14px, 2vw, 18px);
-
     @include sp {
       display: inline-flex;
       justify-content: center;
