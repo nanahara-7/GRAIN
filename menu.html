@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <meta name="description" content="GRAINのメニュー一覧。北海道産小麦を使った焼きたてパン、ドリンク、スイーツなど豊富なラインナップをご紹介します。" />
+    <title>メニュー一覧 | GRAIN</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__inner">
+        <a href="index.html" class="header__logo">GRAIN</a>
+        <!-- /.header__logo -->
+
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="menu.html">メニュー</a></li>
+            <li><a href="#">お知らせ</a></li>
+            <li><a href="#">アクセス</a></li>
+          </ul>
+          <a href="#" class="btn btn--primary header__contact-btn">お問い合わせ</a>
+        </nav>
+        <!-- /.header__nav -->
+
+        <!-- ハンバーガーボタン（SP用） -->
+        <button class="header__hamburger" type="button" aria-label="メニューを開く" aria-expanded="false">
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span></button
+        ><!-- /.header__hamburger -->
+      </div>
+      <!-- /.header__inner -->
+    </header>
+
+    <!-- ドロワーメニュー（SP用） -->
+    <div class="drawer">
+      <button class="drawer__close" type="button" aria-label="メニューを閉じる">×</button>
+      <p class="drawer__logo">GRAIN</p>
+      <nav class="drawer__nav">
+        <ul class="drawer__nav-list">
+          <li><a href="index.html" class="drawer__nav-item">ホーム</a></li>
+          <li><a href="menu.html" class="drawer__nav-item">メニュー</a></li>
+          <li><a href="#" class="drawer__nav-item">お知らせ</a></li>
+          <li><a href="#" class="drawer__nav-item">アクセス</a></li>
+        </ul>
+      </nav>
+      <a href="#" class="drawer__contact-btn">お問い合わせ <span>→</span></a>
+      <!-- /.drawer__nav -->
+    </div>
+    <!-- /.drawer -->
+
+    <!-- オーバーレイ -->
+    <div class="overlay"></div>
+
+    <!-- メニューFVセクション -->
+    <section class="menu-fv">
+      <div class="menu-fv__inner">
+        <p class="menu-fv__label">Menu</p>
+        <h1 class="menu-fv__title">メニュー一覧</h1>
+      </div>
+    </section>
+
+    <!-- メニューカタログセクション -->
+    <section class="menu-catalog">
+
+      <!-- パンくずリスト・タブエリア（warm-beige） -->
+      <div class="menu-catalog__top">
+        <div class="menu-catalog__inner">
+
+          <!-- パンくずリスト -->
+          <nav class="menu-catalog__breadcrumb" aria-label="パンくずリスト">
+            <ol class="menu-catalog__breadcrumb-list">
+              <li class="menu-catalog__breadcrumb-item">
+                <a href="index.html" class="menu-catalog__breadcrumb-link">ホーム</a>
+              </li>
+              <li class="menu-catalog__breadcrumb-item menu-catalog__breadcrumb-item--current" aria-current="page">
+                メニュー一覧
+              </li>
+            </ol>
+          </nav>
+          <!-- /.menu-catalog__breadcrumb -->
+
+          <!-- カテゴリータブ -->
+          <div class="menu-catalog__tabs" role="tablist" aria-label="カテゴリー">
+            <button class="menu-catalog__tab menu-catalog__tab--active" role="tab" aria-selected="true" data-category="all">すべて</button>
+            <button class="menu-catalog__tab" role="tab" aria-selected="false" data-category="bread">パン</button>
+            <button class="menu-catalog__tab" role="tab" aria-selected="false" data-category="drink">ドリンク</button>
+            <button class="menu-catalog__tab" role="tab" aria-selected="false" data-category="sweets">スイーツ</button>
+            <button class="menu-catalog__tab" role="tab" aria-selected="false" data-category="seasonal">季節限定</button>
+          </div>
+          <!-- /.menu-catalog__tabs -->
+
+        </div>
+      </div>
+      <!-- /.menu-catalog__top -->
+
+      <!-- ウェーブ（warm-beige → light-beige） -->
+      <div class="menu-catalog__wave">
+        <img src="img/svg/wave-menu-catalog.svg" alt="" />
+      </div>
+
+      <!-- カードグリッドエリア（light-beige） -->
+      <div class="menu-catalog__bottom">
+        <div class="menu-catalog__inner">
+
+        <!-- メニューカードグリッド -->
+        <ul class="menu-catalog__grid">
+
+          <li class="menu-catalog__grid-item" data-category="bread">
+            <article class="menu-card">
+              <div class="menu-card__img">
+                <img src="img/menu-croissant.jpg" alt="焼きたてクロワッサン" loading="lazy" />
+              </div>
+              <div class="menu-card__body">
+                <span class="menu-card__category">パン</span>
+                <h2 class="menu-card__name">焼きたてクロワッサン</h2>
+                <p class="menu-card__desc">バターをたっぷり使った、外はサクサク、中はしっとりのクロワッサン。</p>
+                <p class="menu-card__price">¥280</p>
+              </div>
+            </article>
+          </li>
+
+          <li class="menu-catalog__grid-item" data-category="drink">
+            <article class="menu-card">
+              <div class="menu-card__img">
+                <img src="img/menu-latte.jpg" alt="自家製カフェラテ" loading="lazy" />
+              </div>
+              <div class="menu-card__body">
+                <span class="menu-card__category">ドリンク</span>
+                <h2 class="menu-card__name">自家製カフェラテ</h2>
+                <p class="menu-card__desc">厳選したコーヒー豆と濃厚なミルクで仕上げた、まろやかなカフェラテ。</p>
+                <p class="menu-card__price">¥480</p>
+              </div>
+            </article>
+          </li>
+
+          <li class="menu-catalog__grid-item" data-category="bread">
+            <article class="menu-card">
+              <div class="menu-card__img">
+                <img src="img/menu-creampan.jpg" alt="クリームパン" loading="lazy" />
+              </div>
+              <div class="menu-card__body">
+                <span class="menu-card__category">パン</span>
+                <h2 class="menu-card__name">クリームパン</h2>
+                <p class="menu-card__desc">自家製カスタードクリームをたっぷり詰め込んだ、やさしい甘さのクリームパン。</p>
+                <p class="menu-card__price">¥320</p>
+              </div>
+            </article>
+          </li>
+
+          <li class="menu-catalog__grid-item" data-category="seasonal">
+            <article class="menu-card">
+              <div class="menu-card__img">
+                <img src="img/news-1.jpg" alt="いちごデニッシュ" loading="lazy" />
+              </div>
+              <div class="menu-card__body">
+                <span class="menu-card__category">季節限定</span>
+                <h2 class="menu-card__name">いちごデニッシュ</h2>
+                <p class="menu-card__desc">福岡県産あまおうを使った春限定のデニッシュ。甘酸っぱい味わいが絶品。</p>
+                <p class="menu-card__price">¥380</p>
+              </div>
+            </article>
+          </li>
+
+          <li class="menu-catalog__grid-item" data-category="bread">
+            <article class="menu-card">
+              <div class="menu-card__img">
+                <img src="img/menu-shokupan.jpg" alt="北海道産小麦の食パン" loading="lazy" />
+              </div>
+              <div class="menu-card__body">
+                <span class="menu-card__category">パン</span>
+                <h2 class="menu-card__name">北海道産小麦の食パン</h2>
+                <p class="menu-card__desc">北海道産小麦100%使用。毎朝焼き上げるふんわりもちもちの食パン。</p>
+                <p class="menu-card__price">¥380</p>
+              </div>
+            </article>
+          </li>
+
+          <li class="menu-catalog__grid-item" data-category="sweets">
+            <article class="menu-card">
+              <div class="menu-card__img">
+                <img src="img/menu-muffin.jpg" alt="ブルーベリーマフィン" loading="lazy" />
+              </div>
+              <div class="menu-card__body">
+                <span class="menu-card__category">スイーツ</span>
+                <h2 class="menu-card__name">ブルーベリーマフィン</h2>
+                <p class="menu-card__desc">ぷちぷちのブルーベリーをたっぷり入れた、しっとりやわらかなマフィン。</p>
+                <p class="menu-card__price">¥220</p>
+              </div>
+            </article>
+          </li>
+
+        </ul>
+        <!-- /.menu-catalog__grid -->
+
+        <!-- ページネーション -->
+        <nav class="menu-catalog__pagination" aria-label="ページネーション">
+          <ul class="menu-catalog__pagination-list">
+            <li><a href="#" class="menu-catalog__pagination-btn menu-catalog__pagination-btn--active" aria-current="page" aria-label="1ページ目">1</a></li>
+            <li><a href="#" class="menu-catalog__pagination-btn" aria-label="2ページ目">2</a></li>
+            <li><a href="#" class="menu-catalog__pagination-btn" aria-label="3ページ目">3</a></li>
+          </ul>
+        </nav>
+        <!-- /.menu-catalog__pagination -->
+
+        </div>
+      </div>
+      <!-- /.menu-catalog__bottom -->
+
+    </section>
+    <!-- /.menu-catalog -->
+
+    <!-- contactセクション -->
+    <section class="contact">
+      <div class="contact__inner">
+        <p class="contact__label">Contact</p>
+        <h2 class="contact__title">お気軽にお問い合わせください</h2>
+        <p class="contact__desc">ご予約・メニューに関するご質問など<br />お気軽にお問い合わせください。</p>
+        <a href="#" class="btn btn--primary">お問い合わせする <span class="btn__arrow">→</span></a>
+      </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__info">
+          <p class="footer__logo">GRAIN</p>
+          <p class="footer__address">〒000-0000 大阪府xxxyyy1-1-1 xxxxxxxxx 3F</p>
+          <p class="footer__hours">営業 8:00〜18:00</p>
+          <p class="footer__holiday">定休日：火曜日</p>
+        </div>
+        <nav class="footer__nav-wrap">
+          <ul class="footer__nav-col">
+            <li><a href="index.html" class="footer__nav-item">ホーム</a></li>
+            <li><a href="menu.html" class="footer__nav-item">メニュー</a></li>
+            <li><a href="#" class="footer__nav-item">お知らせ</a></li>
+            <li><a href="#" class="footer__nav-item">アクセス</a></li>
+          </ul>
+          <ul class="footer__nav-col">
+            <li><a href="#" class="footer__nav-item">お問い合わせ</a></li>
+            <li><a href="#" class="footer__nav-item">プライバシーポリシー</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer__copyright">© GRAIN. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="animation.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>
