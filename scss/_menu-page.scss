@@ -1,0 +1,328 @@
+// ==========================================================================
+// Block: menu-fv / menu-catalog / menu-card
+// ==========================================================================
+@use 'variables' as *;
+
+// --------------------------------------------------------------------------
+// FV
+// --------------------------------------------------------------------------
+.menu-fv {
+  background-color: #3d2b1f;
+  padding: clamp(80px, 12vw, 160px) 0 clamp(48px, 8vw, 96px);
+  text-align: center;
+
+  &__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp($spacing-xl, 5vw, 72px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-md;
+  }
+
+  &__label {
+    font-family: $font-family-en;
+    font-size: clamp(16px, 1.5vw, 24px);
+    font-weight: 700;
+    color: $color-terracotta;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 1px;
+      background-color: $color-terracotta;
+    }
+  }
+
+  &__title {
+    font-size: clamp(24px, 3vw, 40px);
+    font-weight: 700;
+    color: $color-white;
+  }
+}
+
+// --------------------------------------------------------------------------
+// Catalog (breadcrumb + tabs + grid + pagination)
+// --------------------------------------------------------------------------
+.menu-catalog {
+
+  &__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp($spacing-xl, 8vw, 140px);
+  }
+
+  // パンくず・タブエリア
+  &__top {
+    background-color: $color-warm-beige;
+    padding: clamp(24px, 3vw, 40px) 0 clamp(32px, 4vw, 48px);
+  }
+
+  // ウェーブ
+  &__wave {
+    width: 100%;
+    margin-top: -3px;
+    margin-bottom: -2px;
+    line-height: 0;
+    background-color: $color-warm-beige;
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    @include sp {
+      img {
+        transform: scaleY(1.8);
+        transform-origin: bottom;
+      }
+    }
+  }
+
+  // カードグリッドエリア
+  &__bottom {
+    background-color: $color-light-beige;
+    padding: clamp(40px, 5vw, 64px) 0 clamp(48px, 7vw, 96px);
+  }
+
+  // ---- パンくずリスト ----
+  &__breadcrumb {
+    margin-bottom: clamp(24px, 3vw, 40px);
+  }
+
+  &__breadcrumb-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+    font-size: 13px;
+    color: $color-text-gray;
+  }
+
+  &__breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    &::before {
+      content: '>';
+      display: none;
+    }
+
+    & + &::before {
+      display: inline;
+    }
+
+    &--current {
+      color: $color-charcoal;
+      font-weight: 500;
+    }
+  }
+
+  &__breadcrumb-link {
+    color: $color-text-gray;
+    text-decoration: none;
+    transition: color 0.2s ease;
+
+    &:hover {
+      color: $color-terracotta;
+    }
+  }
+
+  // ---- カテゴリータブ ----
+  &__tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: clamp(32px, 5vw, 56px);
+  }
+
+  &__tab {
+    min-width: 120px;
+    height: 52px;
+    padding: 0 clamp(16px, 2vw, 24px);
+    font-family: $font-family-base;
+    font-size: clamp(13px, 1.2vw, 15px);
+    font-weight: 500;
+    border-radius: 10px;
+    border: 1.5px solid $color-border;
+    background-color: $color-white;
+    color: $color-charcoal;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      background-color: $color-warm-beige;
+      border-color: $color-terracotta;
+    }
+
+    &--active {
+      background-color: $color-terracotta;
+      border-color: $color-terracotta;
+      color: $color-white;
+
+      &:hover {
+        background-color: $color-terracotta-hover;
+        border-color: $color-terracotta-hover;
+      }
+    }
+
+    @include sp {
+      min-width: 0;
+      flex: 1 1 calc(33.333% - 8px);
+      height: 44px;
+      font-size: 13px;
+    }
+  }
+
+  // ---- グリッド ----
+  &__grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(24px, 3vw, 40px);
+    margin-bottom: clamp(40px, 6vw, 64px);
+
+    @include pc {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include sp {
+      gap: 16px;
+    }
+
+    @media (max-width: 480px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  // ---- ページネーション ----
+  &__pagination {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__pagination-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    list-style: none;
+  }
+
+  &__pagination-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    border: 1.5px solid $color-border;
+    background-color: $color-white;
+    color: $color-charcoal;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+    &:hover {
+      background-color: $color-warm-beige;
+      border-color: $color-terracotta;
+      color: $color-terracotta;
+    }
+
+    &--active {
+      background-color: $color-terracotta;
+      border-color: $color-terracotta;
+      color: $color-white;
+
+      &:hover {
+        background-color: $color-terracotta-hover;
+        border-color: $color-terracotta-hover;
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// Menu Card
+// --------------------------------------------------------------------------
+.menu-card {
+  display: flex;
+  flex-direction: column;
+  background-color: $color-white;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(96, 90, 85, 0.12);
+  height: 100%;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(96, 90, 85, 0.2);
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+  }
+
+  &:hover &__img img {
+    transform: scale(1.05);
+  }
+
+  &__body {
+    padding: clamp(16px, 1.5vw, 20px);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex: 1;
+  }
+
+  &__category {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    background-color: $color-warm-beige;
+    color: $color-text-gray;
+    padding: 3px 10px;
+    border-radius: 4px;
+    align-self: flex-start;
+  }
+
+  &__name {
+    font-size: clamp(14px, 1.2vw, 16px);
+    font-weight: 700;
+    color: $color-charcoal;
+    line-height: 1.5;
+  }
+
+  &__desc {
+    font-size: clamp(12px, 1vw, 14px);
+    color: $color-text-gray;
+    line-height: 1.8;
+    flex: 1;
+  }
+
+  &__price {
+    font-family: $font-family-en;
+    font-size: clamp(18px, 1.8vw, 22px);
+    font-weight: 700;
+    color: $color-terracotta;
+    margin-top: 4px;
+  }
+}
