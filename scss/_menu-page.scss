@@ -141,6 +141,18 @@
     flex-wrap: wrap;
     gap: 12px;
     margin-bottom: clamp(32px, 5vw, 56px);
+
+    @include sp {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      gap: 8px;
+      padding-bottom: 4px;
+      // スクロールバーを非表示
+      scrollbar-width: none;
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
   }
 
   &__tab {
@@ -174,10 +186,12 @@
     }
 
     @include sp {
-      min-width: 0;
-      flex: 1 1 calc(33.333% - 8px);
-      height: 44px;
+      flex-shrink: 0;
+      min-width: 80px;
+      height: 40px;
+      padding: 0 16px;
       font-size: 13px;
+      white-space: nowrap;
     }
   }
 
