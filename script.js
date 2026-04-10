@@ -22,6 +22,61 @@ closeBtn.addEventListener('click', closeDrawer);
 overlay.addEventListener('click', closeDrawer);
 
 // ==========================================================================
+// カテゴリーフィルター（news.html）
+
+const newsTabs = document.querySelectorAll('.news-catalog__tab');
+const newsItems = document.querySelectorAll('.news-catalog__list-item');
+
+if (newsTabs.length > 0) {
+  newsTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      newsTabs.forEach(t => {
+        t.classList.remove('news-catalog__tab--active');
+        t.setAttribute('aria-selected', 'false');
+      });
+      tab.classList.add('news-catalog__tab--active');
+      tab.setAttribute('aria-selected', 'true');
+
+      const selected = tab.dataset.category;
+      const showItems = [];
+      const hideItems = [];
+
+      newsItems.forEach(item => {
+        if (selected === 'all' || item.dataset.category === selected) {
+          showItems.push(item);
+        } else {
+          hideItems.push(item);
+        }
+      });
+
+      if (hideItems.length > 0) {
+        gsap.to(hideItems, {
+          opacity: 0,
+          y: 12,
+          duration: 0.25,
+          ease: 'power2.in',
+          onComplete: () => {
+            hideItems.forEach(item => {
+              item.style.display = 'none';
+              gsap.set(item, { opacity: 0, y: 12 });
+            });
+            showItems.forEach(item => {
+              item.style.display = '';
+              gsap.to(item, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
+            });
+          },
+        });
+      } else {
+        showItems.forEach(item => {
+          item.style.display = '';
+          gsap.to(item, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
+        });
+      }
+    });
+  });
+}
+
+// ==========================================================================
 // カテゴリーフィルター（menu.html）
 
 const tabs = document.querySelectorAll('.menu-catalog__tab');
