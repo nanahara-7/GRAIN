@@ -1,0 +1,352 @@
+// ==========================================================================
+// Block: post-fv / post-body / post-article / post-nav / post-breadcrumb
+// ==========================================================================
+@use 'variables' as *;
+
+// --------------------------------------------------------------------------
+// FV
+// --------------------------------------------------------------------------
+.post-fv {
+  position: relative;
+  background-color: $color-warm-beige;
+  padding: clamp(48px, 6vw, 80px) 0 0;
+  overflow: hidden;
+
+  &__inner {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 8vw, 140px);
+    padding-bottom: clamp(48px, 6vw, 80px);
+    text-align: center;
+
+    @include sp {
+      padding-bottom: 80px;
+    }
+  }
+
+  &__label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(18px, 1.8vw, 26px);
+    font-weight: 700;
+    color: $color-terracotta;
+    letter-spacing: 0.12em;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 20px;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  &__eyecatch {
+    font-size: clamp(18px, 1.8vw, 36px);
+    font-weight: 700;
+    color: $color-charcoal;
+    line-height: 1.8;
+    letter-spacing: 0.02em;
+    text-align: center;
+  }
+
+  &__wave {
+    width: 100%;
+    line-height: 0;
+    margin-top: -2px;
+
+    img {
+      width: 100%;
+      display: block;
+    }
+
+    @include sp {
+      margin-top: -1px;
+
+      img {
+        transform: scaleY(1.8);
+        transform-origin: bottom;
+        margin-bottom: -3px;
+      }
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// 記事本文エリア（外側の背景）
+// --------------------------------------------------------------------------
+.post-body {
+  background-color: #f2e2d0;
+  padding: clamp(32px, 4vw, 56px) 0 clamp(56px, 8vw, 96px);
+
+  &__inner {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 clamp(16px, 5vw, 40px);
+  }
+}
+
+// --------------------------------------------------------------------------
+// 記事コンテンツ（白いカード）
+// --------------------------------------------------------------------------
+.post-article {
+  background-color: $color-white;
+  border-radius: 20px;
+  padding: clamp(32px, 5vw, 72px) clamp(24px, 6vw, 96px);
+
+  // メタ情報（日付・タグ）
+  &__meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+    margin-bottom: 16px;
+  }
+
+  &__date {
+    font-family: $font-family-base;
+    font-size: clamp(13px, 1.2vw, 18px);
+    font-weight: 700;
+    color: $color-form-text;
+    white-space: nowrap;
+  }
+
+  &__tags {
+    display: flex;
+    gap: 8px;
+    list-style: none;
+  }
+
+  &__tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 3px 10px;
+    background-color: $color-terracotta;
+    color: $color-white;
+    font-size: 11px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  // 記事タイトル
+  &__title {
+    font-size: clamp(20px, 3.5vw, 30px);
+    font-weight: 700;
+    color: $color-charcoal;
+    line-height: 1.5;
+    margin-bottom: clamp(24px, 3vw, 40px);
+  }
+
+  // 区切り線
+  &__divider {
+    border: none;
+    border-top: 1px solid $color-light-beige;
+    margin: clamp(24px, 3vw, 40px) 0;
+  }
+
+  // メイン画像
+  &__img {
+    width: 100%;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 0 auto clamp(32px, 4vw, 56px);
+    aspect-ratio: 5 / 3;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  // 本文テキスト
+  &__text {
+    font-size: clamp(15px, 1.4vw, 18px);
+    color: $color-charcoal;
+    line-height: 2.2;
+    margin-bottom: clamp(32px, 4vw, 56px);
+
+    &--bold {
+      font-weight: 600;
+    }
+  }
+
+  // セクション見出し
+  &__heading {
+    font-size: clamp(20px, 2vw, 32px);
+    font-weight: 600;
+    color: $color-charcoal;
+    padding-left: 25px;
+    border-left: 3px solid $color-terracotta;
+    margin-bottom: clamp(24px, 3vw, 40px);
+    line-height: 1.5;
+
+    @include sp {
+      display: table;
+      margin-left: auto;
+      margin-right: auto;
+      padding-left: 0;
+      border-left: none;
+      border-bottom: 2px solid $color-terracotta;
+      padding-bottom: 8px;
+    }
+  }
+
+  // 商品情報ボックス
+  &__info-box {
+    background-color: $color-warm-beige;
+    border-radius: 12px;
+    border-left: 5px solid $color-terracotta;
+    padding: clamp(20px, 2.5vw, 36px) clamp(20px, 3vw, 48px);
+    margin-bottom: clamp(32px, 4vw, 56px);
+  }
+
+  &__info-heading {
+    font-size: clamp(16px, 1.5vw, 24px);
+    font-weight: 600;
+    color: $color-charcoal;
+    margin-bottom: clamp(16px, 2vw, 24px);
+    padding-bottom: 12px;
+    border-bottom: 1px solid $color-border;
+  }
+
+  &__info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  &__info-row {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 12px 0;
+    border-bottom: 1px solid $color-border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    @include sp {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+  }
+
+  &__info-term {
+    font-size: clamp(13px, 1.1vw, 15px);
+    font-weight: 600;
+    color: $color-text-gray;
+    min-width: 80px;
+    flex-shrink: 0;
+  }
+
+  &__info-desc {
+    font-size: clamp(13px, 1.1vw, 16px);
+    color: $color-charcoal;
+    line-height: 1.7;
+  }
+}
+
+// --------------------------------------------------------------------------
+// 前後記事ナビゲーション
+// --------------------------------------------------------------------------
+.post-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 8px;
+
+  @include sp {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  &__prev,
+  &__next {
+    font-size: clamp(13px, 1.1vw, 16px);
+    font-weight: 500;
+    color: $color-terracotta;
+    text-decoration: none;
+    transition: opacity 0.2s;
+
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+
+  &__list {
+    font-size: clamp(13px, 1.1vw, 15px);
+    font-weight: 500;
+    color: $color-charcoal;
+    text-decoration: none;
+    border: 1.5px solid $color-border;
+    padding: 10px 24px;
+    border-radius: 6px;
+    transition: border-color 0.2s, color 0.2s;
+    white-space: nowrap;
+
+    &:hover {
+      border-color: $color-terracotta;
+      color: $color-terracotta;
+    }
+
+    @include sp {
+      order: -1;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+// --------------------------------------------------------------------------
+// パンくずリスト
+// --------------------------------------------------------------------------
+.post-breadcrumb {
+  background-color: $color-white;
+  padding: 14px clamp(16px, 8vw, 140px);
+
+  &__list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    font-size: 13px;
+    color: $color-text-gray;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-width: 0;
+
+    & + &::before {
+      content: '>';
+      flex-shrink: 0;
+    }
+
+    &--current {
+      color: $color-charcoal;
+      font-weight: 500;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+
+  &__link {
+    color: $color-text-gray;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: $color-terracotta;
+    }
+  }
+}

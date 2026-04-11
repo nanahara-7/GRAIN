@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <meta name="description" content="GRAINへのご予約・メニューに関するご質問など、お気軽にお問い合わせください。" />
+    <title>お問い合わせ | GRAIN</title>
+  </head>
+  <body>
+
+    <!-- ヘッダー -->
+    <header class="header">
+      <div class="header__inner">
+        <a href="index.html" class="header__logo">GRAIN</a>
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="menu.html">メニュー</a></li>
+            <li><a href="news.html">お知らせ</a></li>
+          </ul>
+          <a href="contact.html" class="btn btn--primary header__contact-btn">お問い合わせ</a>
+        </nav>
+        <button class="header__hamburger" type="button" aria-label="メニューを開く" aria-expanded="false">
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- ドロワーメニュー -->
+    <div class="drawer">
+      <button class="drawer__close" type="button" aria-label="メニューを閉じる">×</button>
+      <p class="drawer__logo">GRAIN</p>
+      <nav class="drawer__nav">
+        <ul class="drawer__nav-list">
+          <li><a href="index.html" class="drawer__nav-item">ホーム</a></li>
+          <li><a href="menu.html" class="drawer__nav-item">メニュー</a></li>
+          <li><a href="news.html" class="drawer__nav-item">お知らせ</a></li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="drawer__contact-btn">お問い合わせ <span>→</span></a>
+    </div>
+    <div class="overlay"></div>
+
+    <!-- FV -->
+    <section class="contact-fv">
+      <div class="contact-fv__inner">
+        <p class="contact-fv__label">Contact</p>
+        <h1 class="contact-fv__title">お問い合わせ</h1>
+      </div>
+      <div class="contact-fv__wave">
+        <img src="img/svg/Rectangle 7.svg" alt="" />
+      </div>
+    </section>
+
+    <!-- フォームエリア -->
+    <section class="contact-form">
+      <div class="contact-form__inner">
+
+        <form class="contact-form__form" action="thanks.html" method="get" novalidate>
+
+          <p class="contact-form__desc">ご予約やメニューに関するお問い合わせは、下記フォームよりお送りください。<br />内容を確認後、2〜3営業日以内にメールまたはお電話にてご連絡いたします。</p>
+
+          <!-- お名前 -->
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="name">
+              お名前
+              <span class="contact-form__required">必須</span>
+            </label>
+            <input class="contact-form__input" type="text" id="name" name="name" placeholder="例）山田 太郎" required />
+          </div>
+
+          <!-- フリガナ -->
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="kana">
+              フリガナ
+              <span class="contact-form__required">必須</span>
+            </label>
+            <input class="contact-form__input" type="text" id="kana" name="kana" placeholder="例）ヤマダ　タロウ" required />
+          </div>
+
+          <!-- メールアドレス -->
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="email">
+              メールアドレス
+              <span class="contact-form__required">必須</span>
+            </label>
+            <input class="contact-form__input" type="email" id="email" name="email" placeholder="例）info@example.com" required />
+          </div>
+
+          <!-- 連絡先電話番号 -->
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="tel">
+              連絡先電話番号
+              <span class="contact-form__required">必須</span>
+            </label>
+            <input class="contact-form__input" type="tel" id="tel" name="tel" placeholder="例）000-0000-0000" required />
+          </div>
+
+          <!-- お問い合わせ種別 -->
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="category">
+              お問い合わせ種別
+              <span class="contact-form__required">必須</span>
+            </label>
+            <div class="contact-form__select-wrap">
+              <select class="contact-form__select" id="category" name="category" required>
+                <option value="" disabled selected>種類を選択してください</option>
+                <option value="reservation">ご予約について</option>
+                <option value="menu">メニューについて</option>
+                <option value="event">イベントについて</option>
+                <option value="other">その他</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- お問い合わせ内容 -->
+          <div class="contact-form__field">
+            <label class="contact-form__label" for="message">
+              お問い合わせ内容
+              <span class="contact-form__required">必須</span>
+            </label>
+            <textarea class="contact-form__textarea" id="message" name="message" placeholder="お問い合わせ内容をご記入ください。" rows="6" required></textarea>
+          </div>
+
+          <!-- 同意チェック -->
+          <div class="contact-form__agree">
+            <p class="contact-form__agree-question"><a href="privacy.html" class="contact-form__agree-link" target="_blank">個人情報保護方針</a>に同意しますか？</p>
+            <label class="contact-form__agree-label">
+              <input class="contact-form__checkbox" type="checkbox" name="agree" required />
+              <span class="contact-form__agree-text">同意する</span>
+            </label>
+          </div>
+
+          <!-- 送信ボタン -->
+          <div class="contact-form__submit-wrap">
+            <button class="btn btn--primary contact-form__submit" type="submit">
+              送信する <span class="btn__arrow">→</span>
+            </button>
+          </div>
+
+        </form>
+      </div>
+    </section>
+
+    <!-- パンくずリスト -->
+    <nav class="contact-breadcrumb" aria-label="パンくずリスト">
+      <ol class="contact-breadcrumb__list">
+        <li class="contact-breadcrumb__item">
+          <a href="index.html" class="contact-breadcrumb__link">ホーム</a>
+        </li>
+        <li class="contact-breadcrumb__item contact-breadcrumb__item--current" aria-current="page">
+          お問い合わせ
+        </li>
+      </ol>
+    </nav>
+
+    <!-- contactセクション -->
+    <section class="contact">
+      <div class="contact__inner">
+        <p class="contact__label">Contact</p>
+        <h2 class="contact__title">お気軽にお問い合わせください</h2>
+        <p class="contact__desc">ご予約・メニューに関するご質問など<br />お気軽にお問い合わせください。</p>
+        <a href="contact.html" class="btn btn--primary">お問い合わせする <span class="btn__arrow">→</span></a>
+      </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__info">
+          <p class="footer__logo">GRAIN</p>
+          <p class="footer__address">〒000-0000 大阪府xxxyyy1-1-1 xxxxxxxxx 3F</p>
+          <p class="footer__hours">営業 8:00〜18:00</p>
+          <p class="footer__holiday">定休日：火曜日</p>
+        </div>
+        <nav class="footer__nav-wrap">
+          <ul class="footer__nav-col">
+            <li><a href="index.html" class="footer__nav-item">ホーム</a></li>
+            <li><a href="menu.html" class="footer__nav-item">メニュー</a></li>
+            <li><a href="news.html" class="footer__nav-item">お知らせ</a></li>
+          </ul>
+          <ul class="footer__nav-col">
+            <li><a href="contact.html" class="footer__nav-item">お問い合わせ</a></li>
+            <li><a href="privacy.html" class="footer__nav-item">プライバシーポリシー</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer__copyright">© GRAIN. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="animation.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@400;700&family=Noto+Serif+JP:wght@400;500;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <meta name="description" content="GRAINの最新のお知らせを掲載しています。イベント情報や新商品のリリースなど、GRAINに関する最新情報をお届けします。" />
+    <title>お知らせ一覧 | GRAIN</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="header__inner">
+        <a href="index.html" class="header__logo">GRAIN</a>
+        <!-- /.header__logo -->
+
+        <nav class="header__nav">
+          <ul class="header__nav-list">
+            <li><a href="index.html">ホーム</a></li>
+            <li><a href="menu.html">メニュー</a></li>
+            <li><a href="news.html">お知らせ</a></li>
+          </ul>
+          <a href="contact.html" class="btn btn--primary header__contact-btn">お問い合わせ</a>
+        </nav>
+        <!-- /.header__nav -->
+
+        <!-- ハンバーガーボタン（SP用） -->
+        <button class="header__hamburger" type="button" aria-label="メニューを開く" aria-expanded="false">
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span>
+          <span class="header__hamburger-line"></span></button
+        ><!-- /.header__hamburger -->
+      </div>
+      <!-- /.header__inner -->
+    </header>
+
+    <!-- ドロワーメニュー（SP用） -->
+    <div class="drawer">
+      <button class="drawer__close" type="button" aria-label="メニューを閉じる">×</button>
+      <p class="drawer__logo">GRAIN</p>
+      <nav class="drawer__nav">
+        <ul class="drawer__nav-list">
+          <li><a href="index.html" class="drawer__nav-item">ホーム</a></li>
+          <li><a href="menu.html" class="drawer__nav-item">メニュー</a></li>
+          <li><a href="news.html" class="drawer__nav-item">お知らせ</a></li>
+        </ul>
+      </nav>
+      <a href="contact.html" class="drawer__contact-btn">お問い合わせ <span>→</span></a>
+      <!-- /.drawer__nav -->
+    </div>
+    <!-- /.drawer -->
+
+    <!-- オーバーレイ -->
+    <div class="overlay"></div>
+
+    <!-- ニュースFVセクション -->
+    <section class="news-fv">
+      <div class="news-fv__inner">
+        <p class="news-fv__label">News</p>
+        <h1 class="news-fv__title">お知らせ</h1>
+      </div>
+    </section>
+
+    <!-- ニュースカタログセクション -->
+    <section class="news-catalog">
+
+      <!-- ウェーブ（warm-beige → light-beige） -->
+      <div class="news-catalog__wave">
+        <img src="img/svg/Rectangle 7.svg" alt="" />
+      </div>
+
+      <!-- コンテンツエリア -->
+      <div class="news-catalog__body">
+        <div class="news-catalog__inner">
+
+          <!-- 白いカードパネル -->
+          <div class="news-catalog__panel">
+
+            <p class="news-catalog__section-heading">すべての記事</p>
+
+            <!-- カテゴリータブ -->
+            <div class="news-catalog__tabs" role="tablist" aria-label="カテゴリー">
+              <button class="news-catalog__tab news-catalog__tab--active" role="tab" aria-selected="true" data-category="all">すべて</button>
+              <button class="news-catalog__tab" role="tab" aria-selected="false" data-category="new-item">新商品</button>
+              <button class="news-catalog__tab" role="tab" aria-selected="false" data-category="event">イベント</button>
+              <button class="news-catalog__tab" role="tab" aria-selected="false" data-category="news">お知らせ</button>
+              <button class="news-catalog__tab" role="tab" aria-selected="false" data-category="seasonal">季節限定</button>
+            </div>
+            <!-- /.news-catalog__tabs -->
+
+          <!-- ニュースリスト -->
+          <ul class="news-catalog__list">
+
+            <li class="news-catalog__list-item" data-category="seasonal">
+              <a href="news-post.html" class="news-catalog__card">
+                <div class="news-catalog__card-img">
+                  <img src="img/news-strawberry-croissant.jpg" alt="いちごデニッシュが新登場" loading="lazy" />
+                </div>
+                <div class="news-catalog__card-body">
+                  <div class="news-catalog__card-meta">
+                    <span class="news-catalog__card-date">2026.03.27</span>
+                    <ul class="news-catalog__card-tags">
+                      <li class="news-catalog__card-tag news-catalog__card-tag--seasonal">季節限定</li>
+                    </ul>
+                  </div>
+                  <p class="news-catalog__card-title">【春限定】いちごデニッシュが新登場しました</p>
+                  <p class="news-catalog__card-desc">福岡県産あまおうをたっぷり使った、春限定のいちごデニッシュが登場。甘酸っぱい味わいとサクサクの生地が絶品です。</p>
+                </div>
+              </a>
+            </li>
+
+            <li class="news-catalog__list-item" data-category="event">
+              <a href="news-post.html" class="news-catalog__card">
+                <div class="news-catalog__card-img">
+                  <img src="img/news-bread-making.jpg" alt="パン作り体験ワークショップ" loading="lazy" />
+                </div>
+                <div class="news-catalog__card-body">
+                  <div class="news-catalog__card-meta">
+                    <span class="news-catalog__card-date">2026.03.15</span>
+                    <ul class="news-catalog__card-tags">
+                      <li class="news-catalog__card-tag news-catalog__card-tag--event">イベント</li>
+                    </ul>
+                  </div>
+                  <p class="news-catalog__card-title">パン作り体験ワークショップ開催決定！</p>
+                  <p class="news-catalog__card-desc">3月15日（土）にパン作り体験ワークショップを開催します。初心者の方でも気軽にご参加いただけます。定員10名・要予約。</p>
+                </div>
+              </a>
+            </li>
+
+            <li class="news-catalog__list-item" data-category="news">
+              <a href="news-post.html" class="news-catalog__card">
+                <div class="news-catalog__card-img">
+                  <img src="img/news-store-closed.jpg" alt="ゴールデンウィーク営業時間" loading="lazy" />
+                </div>
+                <div class="news-catalog__card-body">
+                  <div class="news-catalog__card-meta">
+                    <span class="news-catalog__card-date">2026.03.10</span>
+                    <ul class="news-catalog__card-tags">
+                      <li class="news-catalog__card-tag news-catalog__card-tag--news">お知らせ</li>
+                    </ul>
+                  </div>
+                  <p class="news-catalog__card-title">ゴールデンウィーク期間中の営業時間のご案内</p>
+                  <p class="news-catalog__card-desc">2025年のゴールデンウィーク期間中（4/29〜5/5）は、通常と異なる営業時間となります。詳細はこちらをご確認ください。</p>
+                </div>
+              </a>
+            </li>
+
+            <li class="news-catalog__list-item" data-category="new-item">
+              <a href="news-post.html" class="news-catalog__card">
+                <div class="news-catalog__card-img">
+                  <img src="img/news-matcha-anpan.jpg" alt="抹茶あんぱん新発売" loading="lazy" />
+                </div>
+                <div class="news-catalog__card-body">
+                  <div class="news-catalog__card-meta">
+                    <span class="news-catalog__card-date">2026.03.08</span>
+                    <ul class="news-catalog__card-tags">
+                      <li class="news-catalog__card-tag news-catalog__card-tag--new">新商品</li>
+                    </ul>
+                  </div>
+                  <p class="news-catalog__card-title">【新商品】抹茶あんぱんが新発売しました</p>
+                  <p class="news-catalog__card-desc">京都産宇治抹茶を使用した餡を包んだ、風味豊かな抹茶あんぱんが新登場。ほんのり苦みとやさしい甘さが絶妙な一品です。</p>
+                </div>
+              </a>
+            </li>
+
+
+            <li class="news-catalog__list-item" data-category="news">
+              <a href="news-post.html" class="news-catalog__card">
+                <div class="news-catalog__card-img">
+                  <img src="img/news-closed.jpg" alt="臨時休業のお知らせ" loading="lazy" />
+                </div>
+                <div class="news-catalog__card-body">
+                  <div class="news-catalog__card-meta">
+                    <span class="news-catalog__card-date">2026.02.23</span>
+                    <ul class="news-catalog__card-tags">
+                      <li class="news-catalog__card-tag news-catalog__card-tag--news">お知らせ</li>
+                    </ul>
+                  </div>
+                  <p class="news-catalog__card-title">臨時休業のお知らせ　（2月23日）</p>
+                  <p class="news-catalog__card-desc">設備メンテナンスのため2月23日は臨時休業とさせていただきます。</p>
+                </div>
+              </a>
+            </li>
+
+            <li class="news-catalog__list-item" data-category="seasonal">
+              <a href="news-post.html" class="news-catalog__card">
+                <div class="news-catalog__card-img">
+                  <img src="img/news-choco-danish.jpg" alt="バレンタイン限定チョコデニッシュ" loading="lazy" />
+                </div>
+                <div class="news-catalog__card-body">
+                  <div class="news-catalog__card-meta">
+                    <span class="news-catalog__card-date">2026.02.01</span>
+                    <ul class="news-catalog__card-tags">
+                      <li class="news-catalog__card-tag news-catalog__card-tag--seasonal">季節限定</li>
+                    </ul>
+                  </div>
+                  <p class="news-catalog__card-title">バレンタイン限定チョコデニッシュ販売</p>
+                  <p class="news-catalog__card-desc">2月14日のバレンタインに向け、ベルギーチョコを使ったデニッシュを期間限定で販売します。ギフト包装も承ります。</p>
+                </div>
+              </a>
+            </li>
+
+            <li class="news-catalog__list-item" data-category="news">
+              <a href="news-post.html" class="news-catalog__card">
+                <div class="news-catalog__card-img">
+                  <img src="img/news-closed-sign.jpg" alt="年末年始の営業時間" loading="lazy" />
+                </div>
+                <div class="news-catalog__card-body">
+                  <div class="news-catalog__card-meta">
+                    <span class="news-catalog__card-date">2025.12.20</span>
+                    <ul class="news-catalog__card-tags">
+                      <li class="news-catalog__card-tag news-catalog__card-tag--news">お知らせ</li>
+                    </ul>
+                  </div>
+                  <p class="news-catalog__card-title">年末年始の営業時間についてお知らせ</p>
+                  <p class="news-catalog__card-desc">2024年12月31日〜2025年1月3日は休業いたします。新年は1月4日（土）より通常営業いたします。</p>
+                </div>
+              </a>
+            </li>
+
+            <li class="news-catalog__list-item" data-category="seasonal">
+              <a href="news-post.html" class="news-catalog__card">
+                <div class="news-catalog__card-img">
+                  <img src="img/news-apple-pie.jpg" alt="シナモンアップルパン登場" loading="lazy" />
+                </div>
+                <div class="news-catalog__card-body">
+                  <div class="news-catalog__card-meta">
+                    <span class="news-catalog__card-date">2025.12.01</span>
+                    <ul class="news-catalog__card-tags">
+                      <li class="news-catalog__card-tag news-catalog__card-tag--seasonal">季節限定</li>
+                    </ul>
+                  </div>
+                  <p class="news-catalog__card-title">【秋限定】シナモンアップルパン登場</p>
+                  <p class="news-catalog__card-desc">青森産りんごとシナモンを使った、秋の香り漂う季節限定パンが新登場。温かいコーヒーとの相性が抜群です。</p>
+                </div>
+              </a>
+            </li>
+
+            <li class="news-catalog__list-item" data-category="event">
+              <a href="news-post.html" class="news-catalog__card">
+                <div class="news-catalog__card-img">
+                  <img src="img/news-christmas-gift.jpg" alt="クリスマスケーキセット予約受付" loading="lazy" />
+                </div>
+                <div class="news-catalog__card-body">
+                  <div class="news-catalog__card-meta">
+                    <span class="news-catalog__card-date">2025.11.20</span>
+                    <ul class="news-catalog__card-tags">
+                      <li class="news-catalog__card-tag news-catalog__card-tag--event">イベント</li>
+                    </ul>
+                  </div>
+                  <p class="news-catalog__card-title">クリスマス限定ケーキセット予約受付開始</p>
+                  <p class="news-catalog__card-desc">クリスマス限定のケーキセットの予約受付を開始しました。数量限定のため、お早めにご予約ください。</p>
+                </div>
+              </a>
+            </li>
+
+          </ul>
+          <!-- /.news-catalog__list -->
+
+          <!-- ページネーション -->
+          <nav class="news-catalog__pagination" aria-label="ページネーション">
+            <ul class="news-catalog__pagination-list">
+              <li><a href="#" class="news-catalog__pagination-btn news-catalog__pagination-btn--active" aria-current="page" aria-label="1ページ目">1</a></li>
+              <li><a href="#" class="news-catalog__pagination-btn" aria-label="2ページ目">2</a></li>
+            </ul>
+          </nav>
+          <!-- /.news-catalog__pagination -->
+
+          </div>
+          <!-- /.news-catalog__panel -->
+
+        </div>
+      </div>
+      <!-- /.news-catalog__body -->
+
+      <!-- パンくずリスト -->
+      <nav class="news-catalog__breadcrumb" aria-label="パンくずリスト">
+        <ol class="news-catalog__breadcrumb-list">
+          <li class="news-catalog__breadcrumb-item">
+            <a href="index.html" class="news-catalog__breadcrumb-link">ホーム</a>
+          </li>
+          <li class="news-catalog__breadcrumb-item news-catalog__breadcrumb-item--current" aria-current="page">
+            お知らせ一覧
+          </li>
+        </ol>
+      </nav>
+      <!-- /.news-catalog__breadcrumb -->
+
+    </section>
+    <!-- /.news-catalog -->
+
+    <!-- contactセクション -->
+    <section class="contact">
+      <div class="contact__inner">
+        <p class="contact__label">Contact</p>
+        <h2 class="contact__title">お気軽にお問い合わせください</h2>
+        <p class="contact__desc">ご予約・メニューに関するご質問など<br />お気軽にお問い合わせください。</p>
+        <a href="contact.html" class="btn btn--primary">お問い合わせする <span class="btn__arrow">→</span></a>
+      </div>
+    </section>
+
+    <!-- フッター -->
+    <footer class="footer">
+      <div class="footer__inner">
+        <div class="footer__info">
+          <p class="footer__logo">GRAIN</p>
+          <p class="footer__address">〒000-0000 大阪府xxxyyy1-1-1 xxxxxxxxx 3F</p>
+          <p class="footer__hours">営業 8:00〜18:00</p>
+          <p class="footer__holiday">定休日：火曜日</p>
+        </div>
+        <nav class="footer__nav-wrap">
+          <ul class="footer__nav-col">
+            <li><a href="index.html" class="footer__nav-item">ホーム</a></li>
+            <li><a href="menu.html" class="footer__nav-item">メニュー</a></li>
+            <li><a href="news.html" class="footer__nav-item">お知らせ</a></li>
+          </ul>
+          <ul class="footer__nav-col">
+            <li><a href="contact.html" class="footer__nav-item">お問い合わせ</a></li>
+            <li><a href="privacy.html" class="footer__nav-item">プライバシーポリシー</a></li>
+          </ul>
+        </nav>
+      </div>
+      <p class="footer__copyright">© GRAIN. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="animation.js" defer></script>
+    <script src="script.js" defer></script>
+  </body>
+</html>

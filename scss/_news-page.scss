@@ -1,50 +1,17 @@
 // ==========================================================================
-// Block: menu-fv / menu-catalog / menu-card
+// Block: news-fv / news-catalog
 // ==========================================================================
 @use 'variables' as *;
 
 // --------------------------------------------------------------------------
 // FV
 // --------------------------------------------------------------------------
-.menu-fv {
+.news-fv {
   position: relative;
-  overflow: hidden;
-  background-color: #3d2b1f;
-  padding: clamp(120px, 18vw, 240px) 0 clamp(80px, 14vw, 180px);
+  background-color: $color-warm-beige;
+  padding: clamp(60px, 6.3vw, 91px) 0 clamp(90px, 8.5vw, 123px);
   text-align: center;
-
-  // スライド画像コンテナ
-  &__slides {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
-  }
-
-  // 各スライド
-  &__slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    &--active {
-      opacity: 1;
-    }
-  }
-
-  // 暗いオーバーレイ（テキストを読みやすくする）
-  &__overlay {
-    position: absolute;
-    inset: 0;
-    background-color: rgba(#3d2b1f, 0.55);
-    z-index: 1;
-  }
+  overflow: hidden;
 
   &__inner {
     max-width: 1440px;
@@ -55,50 +22,38 @@
     align-items: center;
     gap: $spacing-md;
     position: relative;
-    z-index: 2;
+    gap: 8px;
+    z-index: 1;
   }
 
   &__label {
     font-family: $font-family-en;
-    font-size: clamp(16px, 1.5vw, 24px);
+    font-size: clamp(16px, 1.5vw, 22px);
     font-weight: 700;
     color: $color-terracotta;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    gap: 6px;
+    gap: 10px;
 
-    &::after {
-      content: '';
-      display: block;
-      width: 100%;
-      height: 1px;
-      background-color: $color-terracotta;
-    }
   }
 
   &__title {
-    font-size: clamp(24px, 3vw, 40px);
+    font-size: clamp(24px, 2.2vw, 32px);
     font-weight: 700;
-    color: $color-white;
+    color: $color-slate;
   }
 }
 
 // --------------------------------------------------------------------------
-// Catalog (breadcrumb + tabs + grid + pagination)
+// Catalog (breadcrumb + panel + tabs + list + pagination)
 // --------------------------------------------------------------------------
-.menu-catalog {
+.news-catalog {
 
   &__inner {
-    max-width: 1440px;
+    max-width: 860px;
     margin: 0 auto;
-    padding: 0 clamp($spacing-xl, 8vw, 140px);
-  }
-
-  // パンくず・タブエリア
-  &__top {
-    background-color: $color-warm-beige;
-    padding: clamp(24px, 3vw, 40px) 0 clamp(32px, 4vw, 48px);
+    padding: 0 clamp(16px, 5vw, 40px);
   }
 
   // ウェーブ
@@ -122,15 +77,29 @@
     }
   }
 
-  // カードグリッドエリア
-  &__bottom {
+  // コンテンツエリア
+  &__body {
     background-color: $color-warm-sand;
-    padding: clamp(40px, 5vw, 64px) 0 clamp(48px, 7vw, 96px);
+    padding: clamp(24px, 3vw, 40px) 0 clamp(48px, 7vw, 96px);
+  }
+
+  // 白いカードパネル
+  &__panel {
+    background-color: $color-white;
+    border-radius: 20px;
+    padding: clamp(32px, 4vw, 56px) clamp(24px, 4vw, 56px);
+
+    @include sp-sm {
+      padding: 20px 16px;
+      border-radius: 12px;
+    }
   }
 
   // ---- パンくずリスト ----
   &__breadcrumb {
-    margin-bottom: clamp(24px, 3vw, 40px);
+    background-color: $color-white;
+    padding: clamp(12px, 1.5vw, 16px) clamp(12px, 8vw, 140px);
+    width: 100%;
   }
 
   &__breadcrumb-list {
@@ -177,15 +146,15 @@
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    margin-bottom: clamp(32px, 5vw, 56px);
+    margin-bottom: clamp(24px, 3vw, 40px);
 
     @include sp {
       flex-wrap: nowrap;
       overflow-x: auto;
       gap: 8px;
       padding-bottom: 4px;
-      // スクロールバーを非表示
       scrollbar-width: none;
+
       &::-webkit-scrollbar {
         display: none;
       }
@@ -194,10 +163,10 @@
 
   &__tab {
     min-width: 120px;
-    height: 52px;
+    height: 60px;
     padding: 0 clamp(16px, 2vw, 24px);
     font-family: $font-family-base;
-    font-size: clamp(13px, 1.2vw, 15px);
+    font-size: clamp(14px, 1.1vw, 16px);
     font-weight: 500;
     border-radius: 10px;
     border: 1.5px solid $color-border;
@@ -230,27 +199,135 @@
       font-size: 13px;
       white-space: nowrap;
     }
+
+    @include sp-sm {
+      min-width: 64px;
+      height: 34px;
+      padding: 0 12px;
+      font-size: 12px;
+    }
   }
 
-  // ---- グリッド ----
-  &__grid {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: clamp(24px, 3vw, 40px);
-    margin-bottom: clamp(40px, 6vw, 64px);
+  // ---- セクション見出し ----
+  &__section-heading {
+    font-size: clamp(16px, 1.9vw, 28px);
+    font-weight: 700;
+    color: $color-slate;
+    margin-bottom: clamp(16px, 1.5vw, 20px);
+  }
 
-    @include pc {
-      grid-template-columns: repeat(3, 1fr);
+  // ---- ニュースリスト ----
+  &__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #e5e7eb;
+    margin-bottom: clamp(32px, 4vw, 56px);
+  }
+
+  &__list-item {
+    padding: 24px 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  // ---- ニュースカード ----
+  &__card {
+    display: flex;
+    align-items: center;
+    gap: clamp(20px, 2.2vw, 32px);
+    text-decoration: none;
+    color: inherit;
+    transition: opacity 0.2s ease;
+
+    &:hover {
+      opacity: 0.75;
     }
 
     @include sp {
+      flex-direction: column;
+      align-items: flex-start;
       gap: 16px;
     }
+  }
 
-    @media (max-width: 480px) {
-      grid-template-columns: 1fr;
+  &__card-img {
+    width: clamp(120px, 18%, 226px);
+    flex-shrink: 0;
+    aspect-ratio: 3 / 2;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #c8c3bc;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
     }
+
+    @include sp {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  &__card-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__card-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 12px;
+  }
+
+  &__card-date {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: $color-text-gray;
+  }
+
+  &__card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    list-style: none;
+  }
+
+  &__card-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 88px;
+    height: 26px;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: $color-terracotta;
+    color: $color-white;
+    white-space: nowrap;
+  }
+
+  &__card-title {
+    font-size: clamp(15px, 1.4vw, 20px);
+    font-weight: 600;
+    color: $color-charcoal;
+    line-height: 1.6;
+  }
+
+  &__card-desc {
+    font-size: clamp(14px, 1.1vw, 16px);
+    color: $color-text-gray;
+    line-height: 1.8;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
   }
 
   // ---- ページネーション ----
@@ -276,7 +353,7 @@
     border: 1.5px solid $color-border;
     background-color: $color-white;
     color: $color-charcoal;
-    font-size: 14px;
+    font-size: 20px;
     font-weight: 500;
     text-decoration: none;
     transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
@@ -297,83 +374,5 @@
         border-color: $color-terracotta-hover;
       }
     }
-  }
-}
-
-// --------------------------------------------------------------------------
-// Menu Card
-// --------------------------------------------------------------------------
-.menu-card {
-  display: flex;
-  flex-direction: column;
-  background-color: $color-white;
-  border-radius: 8px;
-  overflow: hidden;
-  box-shadow: 0 4px 16px rgba(96, 90, 85, 0.12);
-  height: 100%;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-
-  &:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(96, 90, 85, 0.2);
-  }
-
-  &__img {
-    width: 100%;
-    aspect-ratio: 4 / 3;
-    overflow: hidden;
-
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-  }
-
-  &:hover &__img img {
-    transform: scale(1.05);
-  }
-
-  &__body {
-    padding: clamp(16px, 1.5vw, 20px);
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    flex: 1;
-  }
-
-  &__category {
-    display: inline-block;
-    font-size: 11px;
-    font-weight: 500;
-    background-color: $color-warm-beige;
-    color: $color-text-gray;
-    padding: 3px 10px;
-    border-radius: 4px;
-    align-self: flex-start;
-  }
-
-  &__name {
-    font-size: clamp(14px, 1.2vw, 16px);
-    font-weight: 700;
-    color: $color-charcoal;
-    line-height: 1.5;
-  }
-
-  &__desc {
-    font-size: clamp(12px, 1vw, 14px);
-    color: $color-text-gray;
-    line-height: 1.8;
-    flex: 1;
-  }
-
-  &__price {
-    font-family: $font-family-en;
-    font-size: clamp(18px, 1.8vw, 22px);
-    font-weight: 700;
-    color: $color-terracotta;
-    margin-top: 4px;
   }
 }
