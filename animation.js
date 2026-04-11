@@ -51,11 +51,13 @@ function nextSlide() {
   kenBurns(next);
 }
 
-// 最初の画像にもズームをかける
-kenBurns(slides[0]);
+if (slides.length > 0) {
+  // 最初の画像にもズームをかける
+  kenBurns(slides[0]);
 
-// 5秒ごとに切り替え
-setInterval(nextSlide, 5000);
+  // 5秒ごとに切り替え
+  setInterval(nextSlide, 5000);
+}
 
 
 // featureセクション カウントアップアニメーション
@@ -110,7 +112,7 @@ featureNums.forEach((el) => {
 
 // newsセクション スクロールアニメーション
 const newsHeading = document.querySelector('.news__heading');
-const newsItems = document.querySelectorAll('.news__item');
+const homeNewsItems = document.querySelectorAll('.news__item');
 
 if (newsHeading) {
   // 見出しが先にフェードイン
@@ -126,14 +128,14 @@ if (newsHeading) {
   });
 
   // カードが1枚ずつ時間差で下からフェードイン
-  gsap.from(newsItems, {
+  gsap.from(homeNewsItems, {
     y: 32,
     opacity: 0,
     duration: 0.7,
     ease: 'power2.out',
     stagger: 0.15,
     scrollTrigger: {
-      trigger: newsItems[0],
+      trigger: homeNewsItems[0],
       start: 'top 80%',
     },
   });
@@ -170,6 +172,68 @@ if (aboutLabel) {
       trigger: aboutImg,
       start: 'top 80%',
     },
+  });
+}
+
+
+// menu-fv スライドショー
+const menuFvSlides = document.querySelectorAll('.menu-fv__slide');
+let menuFvCurrent = 0;
+
+function menuFvKenBurns(slide) {
+  gsap.fromTo(
+    slide.querySelector('img'),
+    { scale: 1 },
+    { scale: 1.06, duration: 6, ease: 'none' }
+  );
+}
+
+function menuFvNext() {
+  const currentSlide = menuFvSlides[menuFvCurrent];
+  menuFvCurrent = (menuFvCurrent + 1) % menuFvSlides.length;
+  const next = menuFvSlides[menuFvCurrent];
+
+  gsap.to(currentSlide, { opacity: 0, duration: 1.5 });
+  gsap.to(next, { opacity: 1, duration: 1.5 });
+  menuFvKenBurns(next);
+}
+
+if (menuFvSlides.length > 0) {
+  menuFvKenBurns(menuFvSlides[0]);
+  setInterval(menuFvNext, 5000);
+}
+
+
+// news-fv・news-catalogページ アニメーション
+const newsFvLabel = document.querySelector('.news-fv__label');
+const newsFvTitle = document.querySelector('.news-fv__title');
+const newsCatalogItems = document.querySelectorAll('.news-catalog__list-item');
+
+if (newsFvLabel) {
+  // FV：ラベル・タイトルを時間差でフェードイン
+  gsap.from([newsFvLabel, newsFvTitle], {
+    y: 24,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power2.out',
+    stagger: 0.2,
+  });
+}
+
+if (newsCatalogItems.length > 0) {
+  // 記事カードを1枚ずつ時間差でフェードイン
+  newsCatalogItems.forEach((item, i) => {
+    gsap.from(item, {
+      y: 32,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+      delay: i * 0.08,
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 85%',
+      },
+    });
   });
 }
 
