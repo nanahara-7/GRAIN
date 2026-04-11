@@ -238,6 +238,77 @@ if (newsCatalogItems.length > 0) {
 }
 
 
+// news-post FV アニメーション
+const postFvLabel = document.querySelector('.post-fv__label');
+const postFvEyecatch = document.querySelector('.post-fv__eyecatch');
+
+if (postFvLabel) {
+  gsap.from(postFvLabel, {
+    y: 20,
+    opacity: 0,
+    duration: 0.7,
+    ease: 'power2.out',
+  });
+
+  gsap.from(postFvEyecatch, {
+    y: 24,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power2.out',
+    delay: 0.3,
+  });
+}
+
+// news-post 記事本文 アニメーション
+const postArticle = document.querySelector('.post-article');
+
+if (postArticle) {
+  // 記事カード全体が下からフェードイン
+  gsap.from(postArticle, {
+    y: 40,
+    opacity: 0,
+    duration: 0.9,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: postArticle,
+      start: 'top 85%',
+    },
+  });
+
+  // 画像
+  const postImg = postArticle.querySelector('.post-article__img');
+  if (postImg) {
+    gsap.from(postImg, {
+      y: 24,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: postImg,
+        start: 'top 85%',
+      },
+    });
+  }
+
+  // 見出し・テキスト・情報ボックスを順に出現
+  const postElements = postArticle.querySelectorAll(
+    '.post-article__heading, .post-article__text, .post-article__info-box'
+  );
+  postElements.forEach((el) => {
+    gsap.from(el, {
+      y: 20,
+      opacity: 0,
+      duration: 0.7,
+      ease: 'power2.out',
+      scrollTrigger: {
+        trigger: el,
+        start: 'top 88%',
+      },
+    });
+  });
+}
+
+
 // storyセクション スクロールアニメーション
 const storyItems = document.querySelectorAll('.story__item');
 
