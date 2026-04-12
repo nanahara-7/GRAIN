@@ -309,6 +309,21 @@ if (postArticle) {
 }
 
 
+// contact-fv アニメーション（contact / thanks / 404 共通）
+const contactFvLabel = document.querySelector('.contact-fv__label');
+const contactFvTitle = document.querySelector('.contact-fv__title');
+
+if (contactFvLabel) {
+  gsap.from([contactFvLabel, contactFvTitle], {
+    y: 24,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power2.out',
+    stagger: 0.2,
+  });
+}
+
+
 // storyセクション スクロールアニメーション
 const storyItems = document.querySelectorAll('.story__item');
 

@@ -98,7 +98,7 @@
   // パンくず・タブエリア
   &__top {
     background-color: $color-warm-beige;
-    padding: clamp(24px, 3vw, 40px) 0 clamp(32px, 4vw, 48px);
+    padding: clamp(40px, 5vw, 64px) 0;
   }
 
   // ウェーブ
@@ -177,11 +177,13 @@
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
-    margin-bottom: clamp(32px, 5vw, 56px);
+    width: fit-content;
+    margin: 0 auto clamp(32px, 5vw, 56px);
 
     @include sp {
       flex-wrap: nowrap;
       overflow-x: auto;
+      width: 100%;
       gap: 8px;
       padding-bottom: 4px;
       // スクロールバーを非表示
@@ -319,6 +321,7 @@
   }
 
   &__img {
+    position: relative;
     width: 100%;
     aspect-ratio: 4 / 3;
     overflow: hidden;
@@ -330,10 +333,29 @@
       display: block;
       transition: transform 0.4s ease;
     }
+
+    &::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.35);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: 48px 48px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
   }
 
-  &:hover &__img img {
-    transform: scale(1.05);
+  &:hover &__img {
+    &::after {
+      opacity: 1;
+    }
+
+    img {
+      transform: scale(1.05);
+    }
   }
 
   &__body {
@@ -375,5 +397,114 @@
     font-weight: 700;
     color: $color-terracotta;
     margin-top: 4px;
+  }
+}
+
+
+// ==========================================================================
+// Block: menu-modal
+// ==========================================================================
+.menu-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 200;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  &.is-active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.menu-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: min(480px, 100vw);
+  height: 100%;
+  background-color: $color-white;
+  z-index: 201;
+  transform: translateX(100%);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+
+  &__close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    color: $color-white;
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    line-height: 1;
+    transition: background-color 0.2s;
+    z-index: 1;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.85);
+    }
+  }
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+    flex-shrink: 0;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+  }
+
+  &__body {
+    padding: clamp(24px, 4vw, 40px) clamp(24px, 4vw, 40px) clamp(40px, 5vw, 56px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  &__category {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 500;
+    background-color: $color-warm-beige;
+    color: $color-text-gray;
+    padding: 3px 10px;
+    border-radius: 4px;
+    align-self: flex-start;
+  }
+
+  &__name {
+    font-size: clamp(20px, 2.5vw, 28px);
+    font-weight: 700;
+    color: $color-charcoal;
+    line-height: 1.5;
+  }
+
+  &__desc {
+    font-size: clamp(14px, 1.3vw, 16px);
+    color: $color-charcoal;
+    line-height: 1.9;
+  }
+
+  &__price {
+    font-size: clamp(18px, 2vw, 24px);
+    font-weight: 700;
+    color: $color-terracotta;
+    margin-top: 8px;
   }
 }

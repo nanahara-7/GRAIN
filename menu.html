@@ -86,19 +86,6 @@
       <div class="menu-catalog__top">
         <div class="menu-catalog__inner">
 
-          <!-- パンくずリスト -->
-          <nav class="menu-catalog__breadcrumb" aria-label="パンくずリスト">
-            <ol class="menu-catalog__breadcrumb-list">
-              <li class="menu-catalog__breadcrumb-item">
-                <a href="index.html" class="menu-catalog__breadcrumb-link">ホーム</a>
-              </li>
-              <li class="menu-catalog__breadcrumb-item menu-catalog__breadcrumb-item--current" aria-current="page">
-                メニュー一覧
-              </li>
-            </ol>
-          </nav>
-          <!-- /.menu-catalog__breadcrumb -->
-
           <!-- カテゴリータブ -->
           <div class="menu-catalog__tabs" role="tablist" aria-label="カテゴリー">
             <button class="menu-catalog__tab menu-catalog__tab--active" role="tab" aria-selected="true" data-category="all">すべて</button>
@@ -126,7 +113,7 @@
         <ul class="menu-catalog__grid">
 
           <li class="menu-catalog__grid-item" data-category="bread">
-            <article class="menu-card">
+            <article class="menu-card" data-modal-img="img/menu-croissant.jpg" data-modal-alt="焼きたてクロワッサン" data-modal-category="パン" data-modal-name="焼きたてクロワッサン" data-modal-desc="バターをたっぷり使った、外はサクサク、中はしっとりのクロワッサン。" data-modal-price="¥280">
               <div class="menu-card__img">
                 <img src="img/menu-croissant.jpg" alt="焼きたてクロワッサン" loading="lazy" />
               </div>
@@ -140,7 +127,7 @@
           </li>
 
           <li class="menu-catalog__grid-item" data-category="drink">
-            <article class="menu-card">
+            <article class="menu-card" data-modal-img="img/menu-latte.jpg" data-modal-alt="自家製カフェラテ" data-modal-category="ドリンク" data-modal-name="自家製カフェラテ" data-modal-desc="厳選したコーヒー豆と濃厚なミルクで仕上げた、まろやかなカフェラテ。" data-modal-price="¥480">
               <div class="menu-card__img">
                 <img src="img/menu-latte.jpg" alt="自家製カフェラテ" loading="lazy" />
               </div>
@@ -154,7 +141,7 @@
           </li>
 
           <li class="menu-catalog__grid-item" data-category="bread">
-            <article class="menu-card">
+            <article class="menu-card" data-modal-img="img/menu-creampan.jpg" data-modal-alt="クリームパン" data-modal-category="パン" data-modal-name="クリームパン" data-modal-desc="自家製カスタードクリームをたっぷり詰め込んだ、やさしい甘さのクリームパン。" data-modal-price="¥320">
               <div class="menu-card__img">
                 <img src="img/menu-creampan.jpg" alt="クリームパン" loading="lazy" />
               </div>
@@ -168,7 +155,7 @@
           </li>
 
           <li class="menu-catalog__grid-item" data-category="seasonal">
-            <article class="menu-card">
+            <article class="menu-card" data-modal-img="img/news-strawberry-croissant.jpg" data-modal-alt="いちごデニッシュ" data-modal-category="季節限定" data-modal-name="いちごデニッシュ" data-modal-desc="福岡県産あまおうを使った春限定のデニッシュ。甘酸っぱい味わいが絶品。" data-modal-price="¥380">
               <div class="menu-card__img">
                 <img src="img/news-strawberry-croissant.jpg" alt="いちごデニッシュ" loading="lazy" />
               </div>
@@ -182,7 +169,7 @@
           </li>
 
           <li class="menu-catalog__grid-item" data-category="bread">
-            <article class="menu-card">
+            <article class="menu-card" data-modal-img="img/menu-shokupan.jpg" data-modal-alt="北海道産小麦の食パン" data-modal-category="パン" data-modal-name="北海道産小麦の食パン" data-modal-desc="北海道産小麦100%使用。毎朝焼き上げるふんわりもちもちの食パン。" data-modal-price="¥380">
               <div class="menu-card__img">
                 <img src="img/menu-shokupan.jpg" alt="北海道産小麦の食パン" loading="lazy" />
               </div>
@@ -196,7 +183,7 @@
           </li>
 
           <li class="menu-catalog__grid-item" data-category="sweets">
-            <article class="menu-card">
+            <article class="menu-card" data-modal-img="img/menu-muffin.jpg" data-modal-alt="ブルーベリーマフィン" data-modal-category="スイーツ" data-modal-name="ブルーベリーマフィン" data-modal-desc="ぷちぷちのブルーベリーをたっぷり入れた、しっとりやわらかなマフィン。" data-modal-price="¥220">
               <div class="menu-card__img">
                 <img src="img/menu-muffin.jpg" alt="ブルーベリーマフィン" loading="lazy" />
               </div>
@@ -228,6 +215,33 @@
 
     </section>
     <!-- /.menu-catalog -->
+
+    <!-- パンくずリスト -->
+    <nav class="contact-breadcrumb" aria-label="パンくずリスト">
+      <ol class="contact-breadcrumb__list">
+        <li class="contact-breadcrumb__item">
+          <a href="index.html" class="contact-breadcrumb__link">ホーム</a>
+        </li>
+        <li class="contact-breadcrumb__item contact-breadcrumb__item--current" aria-current="page">
+          メニュー一覧
+        </li>
+      </ol>
+    </nav>
+
+    <!-- メニューモーダル -->
+    <div class="menu-modal-overlay"></div>
+    <div class="menu-modal" aria-hidden="true">
+      <button class="menu-modal__close" aria-label="閉じる">×</button>
+      <div class="menu-modal__img">
+        <img src="" alt="" />
+      </div>
+      <div class="menu-modal__body">
+        <span class="menu-modal__category"></span>
+        <h2 class="menu-modal__name"></h2>
+        <p class="menu-modal__desc"></p>
+        <p class="menu-modal__price"></p>
+      </div>
+    </div>
 
     <!-- contactセクション -->
     <section class="contact">

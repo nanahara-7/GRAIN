@@ -132,3 +132,63 @@ if (tabs.length > 0) {
     });
   });
 }
+
+
+// ==========================================================================
+// メニューモーダル（スライドイン）
+// ==========================================================================
+const menuCards = document.querySelectorAll('.menu-card[data-modal-img]');
+const menuModal = document.querySelector('.menu-modal');
+const menuModalOverlay = document.querySelector('.menu-modal-overlay');
+const menuModalClose = document.querySelector('.menu-modal__close');
+
+if (menuCards.length > 0 && menuModal) {
+  function openMenuModal(card) {
+    // データ注入
+    menuModal.querySelector('.menu-modal__img img').src = card.dataset.modalImg;
+    menuModal.querySelector('.menu-modal__img img').alt = card.dataset.modalAlt;
+    menuModal.querySelector('.menu-modal__category').textContent = card.dataset.modalCategory;
+    menuModal.querySelector('.menu-modal__name').textContent = card.dataset.modalName;
+    menuModal.querySelector('.menu-modal__desc').textContent = card.dataset.modalDesc;
+    menuModal.querySelector('.menu-modal__price').textContent = card.dataset.modalPrice;
+
+    // オーバーレイ表示
+    menuModalOverlay.classList.add('is-active');
+    document.body.style.overflow = 'hidden';
+    menuModal.setAttribute('aria-hidden', 'false');
+
+    // GSAPでスライドイン
+    gsap.fromTo(menuModal,
+      { x: '100%' },
+      { x: '0%', duration: 0.5, ease: 'power3.out' }
+    );
+  }
+
+  function closeMenuModal() {
+    gsap.to(menuModal, {
+      x: '100%',
+      duration: 0.4,
+      ease: 'power3.in',
+      onComplete: () => {
+        menuModalOverlay.classList.remove('is-active');
+        document.body.style.overflow = '';
+        menuModal.setAttribute('aria-hidden', 'true');
+      }
+    });
+  }
+
+  // カードクリックでモーダルを開く
+  menuCards.forEach(card => {
+    card.addEventListener('click', () => openMenuModal(card));
+    card.style.cursor = 'pointer';
+  });
+
+  // 閉じるボタン・オーバーレイクリックで閉じる
+  menuModalClose.addEventListener('click', closeMenuModal);
+  menuModalOverlay.addEventListener('click', closeMenuModal);
+
+  // ESCキーでも閉じる
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeMenuModal();
+  });
+}
