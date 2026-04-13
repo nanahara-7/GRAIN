@@ -3127,3 +3127,76 @@ a {
 .contact-breadcrumb__link:hover {
   color: #C4714A;
 }
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.loader__logo {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(32px, 5vw, 60px);
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #2C2C2C;
+  opacity: 0;
+}
+
+.page-top {
+  position: fixed;
+  bottom: clamp(24px, 4vw, 40px);
+  right: clamp(16px, 3vw, 32px);
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  background-color: #C4714A;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: background-color 0.2s ease, -webkit-transform 0.2s ease;
+  transition: background-color 0.2s ease, -webkit-transform 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease, -webkit-transform 0.2s ease;
+  -webkit-box-shadow: 0 4px 16px rgba(96, 90, 85, 0.2);
+          box-shadow: 0 4px 16px rgba(96, 90, 85, 0.2);
+}
+.page-top::before {
+  content: "";
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  -webkit-transform: rotate(-45deg) translate(-1px, 2px);
+          transform: rotate(-45deg) translate(-1px, 2px);
+}
+.page-top:hover {
+  background-color: #a8552f;
+  -webkit-transform: translateY(-3px);
+          transform: translateY(-3px);
+}
+.page-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+}

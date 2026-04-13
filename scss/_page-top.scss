@@ -1,0 +1,44 @@
+// ==========================================================================
+// Block: page-top
+// ==========================================================================
+@use 'variables' as *;
+
+.page-top {
+  position: fixed;
+  bottom: clamp(24px, 4vw, 40px);
+  right: clamp(16px, 3vw, 32px);
+  z-index: 100;
+  width: 48px;
+  height: 48px;
+  background-color: $color-terracotta;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 4px 16px rgba(96, 90, 85, 0.2);
+
+  &::before {
+    content: '';
+    display: block;
+    width: 10px;
+    height: 10px;
+    border-top: 2px solid $color-white;
+    border-right: 2px solid $color-white;
+    transform: rotate(-45deg) translate(-1px, 2px);
+  }
+
+  &:hover {
+    background-color: $color-terracotta-hover;
+    transform: translateY(-3px);
+  }
+
+  &.is-visible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

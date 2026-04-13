@@ -1,0 +1,23 @@
+// ==========================================================================
+// Block: loader
+// ==========================================================================
+@use 'variables' as *;
+
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: $color-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__logo {
+    font-family: $font-family-en;
+    font-size: clamp(32px, 5vw, 60px);
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: $color-charcoal;
+    opacity: 0;
+  }
+}

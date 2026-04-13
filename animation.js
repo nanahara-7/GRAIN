@@ -3,6 +3,58 @@
 gsap.registerPlugin(ScrollTrigger);
 
 
+// ヘッダーフェードイン（ローダーがない場合のみ）
+if (!document.querySelector('.loader')) {
+  gsap.from('.header', {
+    y: -20,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power2.out',
+    delay: 0.2,
+  });
+}
+
+
+// ローディングアニメーション
+const loader = document.querySelector('.loader');
+const loaderLogo = document.querySelector('.loader__logo');
+
+if (loader) {
+  const tl = gsap.timeline();
+
+  //  ロゴをフェードイン
+  tl.to(loaderLogo, {
+    opacity: 1,
+    y: 0,
+    duration: 0.8,
+    ease: 'power2.out',
+  })
+  //  少し待つ
+  .to(loaderLogo, {
+    opacity: 0,
+    duration: 0.4,
+    ease: 'power2.in',
+    delay: 0.4,
+  })
+  //  背景が上にスライドして消える
+  .to(loader, {
+    yPercent: -100,
+    duration: 0.8,
+    ease: 'power2.inOut',
+    onComplete: () => {
+      loader.style.display = 'none';
+    },
+  })
+  //  ローダー完了後にヘッダーをフェードイン
+  .from('.header', {
+    y: -20,
+    opacity: 0,
+    duration: 0.6,
+    ease: 'power2.out',
+  }, '-=0.2');
+}
+
+
 // メニュースライダー
 const menuTrack = document.querySelector('.menu__track');
 if (menuTrack) {
@@ -360,3 +412,56 @@ storyItems.forEach((item) => {
     },
   });
 });
+
+
+//  menu-fv テキストフェードイン
+const menuFvLabel = document.querySelector('.menu-fv__label');
+const menuFvTitle = document.querySelector('.menu-fv__title');
+
+if (menuFvLabel) {
+  gsap.from([menuFvLabel, menuFvTitle], {
+    y: 24,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power2.out',
+    stagger: 0.2,
+    delay: 0.3,
+  });
+}
+
+
+//  メニューカードのスクロールフェードイン
+const menuCardItems = document.querySelectorAll('.menu-catalog__grid-item');
+
+if (menuCardItems.length > 0) {
+  menuCardItems.forEach((item, i) => {
+    gsap.from(item, {
+      y: 32,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+      delay: i * 0.08,
+      scrollTrigger: {
+        trigger: item,
+        start: 'top 85%',
+      },
+    });
+  });
+}
+
+
+//  contactセクションのフェードイン
+const contactSection = document.querySelector('.contact');
+
+if (contactSection) {
+  gsap.from(contactSection, {
+    y: 32,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power2.out',
+    scrollTrigger: {
+      trigger: contactSection,
+      start: 'top 80%',
+    },
+  });
+}
