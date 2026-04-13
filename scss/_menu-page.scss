@@ -99,6 +99,9 @@
   &__top {
     background-color: $color-warm-beige;
     padding: clamp(40px, 5vw, 64px) 0;
+    display: flex;
+    align-items: center;
+    min-height: clamp(140px, 18vw, 200px);
   }
 
   // ウェーブ
@@ -116,7 +119,7 @@
 
     @include sp {
       img {
-        transform: scaleY(1.8);
+        transform: scaleY(1.2);
         transform-origin: bottom;
       }
     }
@@ -176,17 +179,18 @@
   &__tabs {
     display: flex;
     flex-wrap: wrap;
-    gap: 12px;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
     width: fit-content;
-    margin: 0 auto clamp(32px, 5vw, 56px);
+    margin: 0 auto;
 
     @include sp {
       flex-wrap: nowrap;
       overflow-x: auto;
       width: 100%;
-      gap: 8px;
+      justify-content: flex-start;
       padding-bottom: 4px;
-      // スクロールバーを非表示
       scrollbar-width: none;
       &::-webkit-scrollbar {
         display: none;
@@ -195,42 +199,66 @@
   }
 
   &__tab {
-    min-width: 120px;
-    height: 52px;
-    padding: 0 clamp(16px, 2vw, 24px);
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: auto;
+    min-width: unset;
+    padding: 4px clamp(12px, 2vw, 20px);
     font-family: $font-family-base;
-    font-size: clamp(13px, 1.2vw, 15px);
+    font-size: clamp(16px, 1.8vw, 22px);
     font-weight: 500;
-    border-radius: 10px;
-    border: 1.5px solid $color-border;
-    background-color: $color-white;
+    border: none;
+    background: none;
     color: $color-charcoal;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+
+    // ドット（アクティブ時のみ表示）
+    &::before {
+      content: '●';
+      font-size: 6px;
+      color: $color-terracotta;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+      flex-shrink: 0;
+    }
+
+    // 区切り文字
+    & + &::after {
+      content: '／';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $color-border;
+      font-size: 14px;
+      pointer-events: none;
+    }
 
     &:hover {
-      background-color: $color-warm-beige;
-      border-color: $color-terracotta;
+      color: $color-terracotta;
     }
 
     &--active {
-      background-color: $color-terracotta;
-      border-color: $color-terracotta;
-      color: $color-white;
+      color: $color-terracotta;
+      font-weight: 700;
+
+      &::before {
+        opacity: 1;
+      }
 
       &:hover {
-        background-color: $color-terracotta-hover;
-        border-color: $color-terracotta-hover;
+        color: $color-terracotta;
       }
     }
 
     @include sp {
       flex-shrink: 0;
-      min-width: 80px;
-      height: 40px;
-      padding: 0 16px;
-      font-size: 13px;
-      white-space: nowrap;
+      padding: 4px clamp(8px, 3vw, 14px);
+      font-size: 16px;
     }
   }
 
