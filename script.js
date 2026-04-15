@@ -93,15 +93,75 @@ if (newsTabs.length > 0) {
 }
 
 // ==========================================================================
-// カテゴリーフィルター（menu.html）
+// カテゴリーフィルター＋ページネーション（menu.html）
 
 const tabs = document.querySelectorAll('.menu-catalog__tab');
 const gridItems = document.querySelectorAll('.menu-catalog__grid-item');
+const menuPaginationNav = document.querySelector('.menu-catalog__pagination');
+const menuPaginationList = document.querySelector('.menu-catalog__pagination-list');
+
+const MENU_ITEMS_PER_PAGE = 6;
+let menuCurrentCategory = 'all';
+let menuCurrentPage = 1;
 
 if (tabs.length > 0) {
+
+  function getFilteredMenuItems() {
+    return [...gridItems].filter(item =>
+      menuCurrentCategory === 'all' || item.dataset.category === menuCurrentCategory
+    );
+  }
+
+  function renderMenuPage() {
+    const filtered = getFilteredMenuItems();
+    const totalPages = Math.ceil(filtered.length / MENU_ITEMS_PER_PAGE);
+    const start = (menuCurrentPage - 1) * MENU_ITEMS_PER_PAGE;
+    const end = start + MENU_ITEMS_PER_PAGE;
+
+    // 全アイテムの表示/非表示
+    gridItems.forEach(item => {
+      const indexInFiltered = filtered.indexOf(item);
+      const shouldShow = indexInFiltered >= start && indexInFiltered < end;
+      if (shouldShow) {
+        item.style.display = '';
+        gsap.to(item, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
+      } else {
+        item.style.display = 'none';
+        gsap.set(item, { opacity: 0, y: 0 });
+      }
+    });
+
+    // ページネーションボタン更新
+    if (menuPaginationList) {
+      menuPaginationList.innerHTML = '';
+      for (let i = 1; i <= totalPages; i++) {
+        const li = document.createElement('li');
+        const a = document.createElement('a');
+        a.href = '#';
+        a.className = 'menu-catalog__pagination-btn' + (i === menuCurrentPage ? ' menu-catalog__pagination-btn--active' : '');
+        if (i === menuCurrentPage) a.setAttribute('aria-current', 'page');
+        a.setAttribute('aria-label', `${i}ページ目`);
+        a.textContent = i;
+        a.addEventListener('click', (e) => {
+          e.preventDefault();
+          menuCurrentPage = i;
+          renderMenuPage();
+          document.querySelector('.menu-catalog__grid').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+        li.appendChild(a);
+        menuPaginationList.appendChild(li);
+      }
+    }
+
+    // 1ページ以下なら非表示
+    if (menuPaginationNav) {
+      menuPaginationNav.style.display = totalPages <= 1 ? 'none' : '';
+    }
+  }
+
+  // タブクリック時：カテゴリー切り替え＋ページリセット
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      // アクティブタブの切り替え
       tabs.forEach(t => {
         t.classList.remove('menu-catalog__tab--active');
         t.setAttribute('aria-selected', 'false');
@@ -109,44 +169,14 @@ if (tabs.length > 0) {
       tab.classList.add('menu-catalog__tab--active');
       tab.setAttribute('aria-selected', 'true');
 
-      const selected = tab.dataset.category;
-      const showItems = [];
-      const hideItems = [];
-
-      gridItems.forEach(item => {
-        if (selected === 'all' || item.dataset.category === selected) {
-          showItems.push(item);
-        } else {
-          hideItems.push(item);
-        }
-      });
-
-      // 非該当カードをフェードアウト → 非表示 → 該当カードをフェードイン
-      if (hideItems.length > 0) {
-        gsap.to(hideItems, {
-          opacity: 0,
-          y: 12,
-          duration: 0.25,
-          ease: 'power2.in',
-          onComplete: () => {
-            hideItems.forEach(item => {
-              item.style.display = 'none';
-              gsap.set(item, { opacity: 0, y: 12 });
-            });
-            showItems.forEach(item => {
-              item.style.display = '';
-              gsap.to(item, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
-            });
-          },
-        });
-      } else {
-        showItems.forEach(item => {
-          item.style.display = '';
-          gsap.to(item, { opacity: 1, y: 0, duration: 0.35, ease: 'power2.out' });
-        });
-      }
+      menuCurrentCategory = tab.dataset.category;
+      menuCurrentPage = 1;
+      renderMenuPage();
     });
   });
+
+  // 初期表示
+  renderMenuPage();
 }
 
 
