@@ -3,8 +3,62 @@
 gsap.registerPlugin(ScrollTrigger);
 
 
-// ヘッダーフェードイン（ローダーがない場合のみ）
-if (!document.querySelector('.loader')) {
+// ローディングアニメーション（初回のみ）
+const loader = document.querySelector('.loader');
+const loaderLogo = document.querySelector('.loader__logo');
+
+if (loader) {
+  const hasLoaded = sessionStorage.getItem('loaderShown');
+
+  if (hasLoaded) {
+    // 2回目以降: ローダーを即非表示 → ヘッダーをフェードイン
+    loader.style.display = 'none';
+    gsap.from('.header', {
+      y: -20,
+      opacity: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+      delay: 0.2,
+    });
+  } else {
+    // 初回のみ: ローディングアニメーション実行
+    sessionStorage.setItem('loaderShown', 'true');
+
+    const tl = gsap.timeline();
+
+    //  ロゴをフェードイン
+    tl.to(loaderLogo, {
+      opacity: 1,
+      y: 0,
+      duration: 0.8,
+      ease: 'power2.out',
+    })
+    //  少し待つ
+    .to(loaderLogo, {
+      opacity: 0,
+      duration: 0.4,
+      ease: 'power2.in',
+      delay: 0.4,
+    })
+    //  背景が上にスライドして消える
+    .to(loader, {
+      yPercent: -100,
+      duration: 0.8,
+      ease: 'power2.inOut',
+      onComplete: () => {
+        loader.style.display = 'none';
+      },
+    })
+    //  ローダー完了後にヘッダーをフェードイン
+    .from('.header', {
+      y: -20,
+      opacity: 0,
+      duration: 0.6,
+      ease: 'power2.out',
+    }, '-=0.2');
+  }
+} else {
+  // ローダーがないページ: ヘッダーをフェードイン
   gsap.from('.header', {
     y: -20,
     opacity: 0,
@@ -12,46 +66,6 @@ if (!document.querySelector('.loader')) {
     ease: 'power2.out',
     delay: 0.2,
   });
-}
-
-
-// ローディングアニメーション
-const loader = document.querySelector('.loader');
-const loaderLogo = document.querySelector('.loader__logo');
-
-if (loader) {
-  const tl = gsap.timeline();
-
-  //  ロゴをフェードイン
-  tl.to(loaderLogo, {
-    opacity: 1,
-    y: 0,
-    duration: 0.8,
-    ease: 'power2.out',
-  })
-  //  少し待つ
-  .to(loaderLogo, {
-    opacity: 0,
-    duration: 0.4,
-    ease: 'power2.in',
-    delay: 0.4,
-  })
-  //  背景が上にスライドして消える
-  .to(loader, {
-    yPercent: -100,
-    duration: 0.8,
-    ease: 'power2.inOut',
-    onComplete: () => {
-      loader.style.display = 'none';
-    },
-  })
-  //  ローダー完了後にヘッダーをフェードイン
-  .from('.header', {
-    y: -20,
-    opacity: 0,
-    duration: 0.6,
-    ease: 'power2.out',
-  }, '-=0.2');
 }
 
 

@@ -194,6 +194,50 @@
     }
   }
 
+  // WordPressブロックエディタ出力（the_content()）のスタイル
+  &__content {
+    p {
+      font-size: clamp(15px, 1.4vw, 18px);
+      color: $color-charcoal;
+      line-height: 2.2;
+      margin-bottom: clamp(24px, 3vw, 40px);
+    }
+
+    h2 {
+      font-size: clamp(20px, 2vw, 32px);
+      font-weight: 600;
+      color: $color-charcoal;
+      padding-left: 25px;
+      border-left: 3px solid $color-terracotta;
+      margin-bottom: clamp(24px, 3vw, 40px);
+      line-height: 1.5;
+
+      @include sp {
+        padding-left: 0;
+        border-left: none;
+        border-bottom: 2px solid $color-terracotta;
+        padding-bottom: 8px;
+      }
+    }
+
+    h3 {
+      font-size: clamp(17px, 1.7vw, 24px);
+      font-weight: 600;
+      color: $color-charcoal;
+      margin-bottom: clamp(16px, 2vw, 24px);
+      line-height: 1.6;
+    }
+
+    strong {
+      font-weight: 700;
+    }
+
+    a {
+      color: $color-terracotta;
+      text-decoration: underline;
+    }
+  }
+
   // 商品情報ボックス
   &__info-box {
     background-color: $color-warm-beige;
@@ -276,6 +320,12 @@
 
     &:hover {
       opacity: 0.7;
+    }
+
+    &--disabled {
+      color: $color-border;
+      cursor: default;
+      pointer-events: none;
     }
   }
 
