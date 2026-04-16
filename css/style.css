@@ -3127,6 +3127,124 @@ a {
   font-weight: 600;
   padding: 0;
 }
+.contact-form__card {
+  background-color: #ffffff;
+  border-radius: 20px;
+  padding: clamp(32px, 5.5vw, 80px) clamp(24px, 9.5vw, 136px);
+}
+.contact-form__card p {
+  margin: 0 0 20px;
+}
+.contact-form__card p br {
+  display: none;
+}
+.contact-form__card .wpcf7-form-control-wrap {
+  display: block;
+  width: 100%;
+  margin-top: 8px;
+}
+.contact-form__card input[type=text],
+.contact-form__card input[type=email],
+.contact-form__card input[type=tel],
+.contact-form__card textarea,
+.contact-form__card select {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 100% !important;
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(14px, 1.2vw, 15px);
+  color: #2C2C2C;
+  background-color: #ffffff;
+  border: 1px solid #D4CFC8;
+  border-radius: 0;
+  -webkit-transition: border-color 0.2s;
+  transition: border-color 0.2s;
+}
+.contact-form__card input[type=text]::-webkit-input-placeholder, .contact-form__card input[type=email]::-webkit-input-placeholder, .contact-form__card input[type=tel]::-webkit-input-placeholder, .contact-form__card textarea::-webkit-input-placeholder, .contact-form__card select::-webkit-input-placeholder {
+  color: #9E9890;
+}
+.contact-form__card input[type=text]::-moz-placeholder, .contact-form__card input[type=email]::-moz-placeholder, .contact-form__card input[type=tel]::-moz-placeholder, .contact-form__card textarea::-moz-placeholder, .contact-form__card select::-moz-placeholder {
+  color: #9E9890;
+}
+.contact-form__card input[type=text]:-ms-input-placeholder, .contact-form__card input[type=email]:-ms-input-placeholder, .contact-form__card input[type=tel]:-ms-input-placeholder, .contact-form__card textarea:-ms-input-placeholder, .contact-form__card select:-ms-input-placeholder {
+  color: #9E9890;
+}
+.contact-form__card input[type=text]::-ms-input-placeholder, .contact-form__card input[type=email]::-ms-input-placeholder, .contact-form__card input[type=tel]::-ms-input-placeholder, .contact-form__card textarea::-ms-input-placeholder, .contact-form__card select::-ms-input-placeholder {
+  color: #9E9890;
+}
+.contact-form__card input[type=text]::placeholder,
+.contact-form__card input[type=email]::placeholder,
+.contact-form__card input[type=tel]::placeholder,
+.contact-form__card textarea::placeholder,
+.contact-form__card select::placeholder {
+  color: #9E9890;
+}
+.contact-form__card input[type=text]:focus,
+.contact-form__card input[type=email]:focus,
+.contact-form__card input[type=tel]:focus,
+.contact-form__card textarea:focus,
+.contact-form__card select:focus {
+  outline: none;
+  border-color: #C4714A;
+}
+.contact-form__card input[type=text],
+.contact-form__card input[type=email],
+.contact-form__card input[type=tel] {
+  height: 44px;
+  padding: 0 16px;
+}
+.contact-form__card select {
+  height: 44px;
+  padding: 0 40px 0 16px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  cursor: pointer;
+}
+.contact-form__card textarea {
+  padding: 12px 16px;
+  line-height: 1.8;
+  resize: vertical;
+  min-height: 150px;
+}
+.contact-form__card input[type=submit] {
+  display: block;
+  margin: 36px auto 0;
+  width: clamp(160px, 30vw, 216px);
+  height: clamp(54px, 7vw, 60px);
+  border-radius: 48px;
+  border: none;
+  background-color: #C4714A;
+  color: #ffffff;
+  font-family: "Noto Serif JP", serif;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-transition: opacity 0.2s;
+  transition: opacity 0.2s;
+}
+.contact-form__card input[type=submit]:hover {
+  opacity: 0.85;
+}
+.contact-form__card input[type=checkbox] {
+  width: 20px !important;
+  height: 20px;
+  accent-color: #C4714A;
+  cursor: pointer;
+}
+.contact-form__card .wpcf7-not-valid-tip {
+  display: block;
+  color: #C4714A;
+  font-size: 12px;
+  margin-top: 4px;
+}
+.contact-form__card .wpcf7-response-output {
+  margin-top: 16px;
+  padding: 12px 16px;
+  font-size: 14px;
+  text-align: center;
+  border-radius: 4px;
+}
 
 .privacy {
   background-color: #F2E2D0;

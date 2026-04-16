@@ -279,6 +279,116 @@
     font-weight: 600;
     padding: 0;
   }
+
+  // CF7を包む白いカード
+  &__card {
+    background-color: $color-white;
+    border-radius: 20px;
+    padding: clamp(32px, 5.5vw, 80px) clamp(24px, 9.5vw, 136px);
+
+    // CF7が出力するpタグのマージンをリセット
+    p {
+      margin: 0 0 20px;
+
+      // CF7がラベルと入力欄の間に挿入するbrを非表示
+      br {
+        display: none;
+      }
+    }
+
+    // CF7のspanラッパーをblock化＋ラベルとの間隔
+    .wpcf7-form-control-wrap {
+      display: block;
+      width: 100%;
+      margin-top: 8px;
+    }
+
+    // テキスト・メール・電話・テキストエリア・セレクト 共通
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    textarea,
+    select {
+      box-sizing: border-box;
+      width: 100% !important;
+      font-family: $font-family-base;
+      font-size: clamp(14px, 1.2vw, 15px);
+      color: $color-charcoal;
+      background-color: $color-white;
+      border: 1px solid $color-border;
+      border-radius: 0;
+      transition: border-color 0.2s;
+
+      &::placeholder { color: $color-form-text; }
+      &:focus { outline: none; border-color: $color-terracotta; }
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+      height: 44px;
+      padding: 0 16px;
+    }
+
+    select {
+      height: 44px;
+      padding: 0 40px 0 16px;
+      appearance: none;
+      cursor: pointer;
+    }
+
+    textarea {
+      padding: 12px 16px;
+      line-height: 1.8;
+      resize: vertical;
+      min-height: 150px;
+    }
+
+    // 送信ボタン
+    input[type="submit"] {
+      display: block;
+      margin: 36px auto 0;
+      width: clamp(160px, 30vw, 216px);
+      height: clamp(54px, 7vw, 60px);
+      border-radius: 48px;
+      border: none;
+      background-color: $color-terracotta;
+      color: $color-white;
+      font-family: $font-family-base;
+      font-size: clamp(16px, 2vw, 20px);
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+
+      &:hover { opacity: 0.85; }
+    }
+
+    // チェックボックス
+    input[type="checkbox"] {
+      width: 20px !important;
+      height: 20px;
+      accent-color: $color-terracotta;
+      cursor: pointer;
+    }
+
+    // バリデーションエラー
+    .wpcf7-not-valid-tip {
+      display: block;
+      color: $color-terracotta;
+      font-size: 12px;
+      margin-top: 4px;
+    }
+
+    // 送信結果メッセージ
+    .wpcf7-response-output {
+      margin-top: 16px;
+      padding: 12px 16px;
+      font-size: 14px;
+      text-align: center;
+      border-radius: 4px;
+    }
+  }
+
 }
 
 // --------------------------------------------------------------------------
