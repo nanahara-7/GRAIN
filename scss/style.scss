@@ -2,27 +2,29 @@
 // Style Entry Point
 // ==========================================================================
 
-// Foundation
-@use 'variables' as *;
-@use 'base';
+// Base
+@use 'base/variables' as *;
+@use 'base/base';
 
 // Components
-@use 'btn';
+@use 'components/btn';
+@use 'components/header';
+@use 'components/footer';
+@use 'components/drawer';
+@use 'components/loader';
+@use 'components/page-top';
 
-// Blocks
-@use 'header';
-@use 'hero';
-@use 'feature';
-@use 'menu';
-@use 'story';
-@use 'about';
-@use 'news';
-@use 'contact';
-@use 'footer';
-@use 'drawer';
-@use 'menu-page';
-@use 'news-page';
-@use 'news-post';
-@use 'contact-page';
-@use 'loader';
-@use 'page-top';
+// Sections
+@use 'sections/hero';
+@use 'sections/feature';
+@use 'sections/menu';
+@use 'sections/story';
+@use 'sections/about';
+@use 'sections/news';
+@use 'sections/contact';
+
+// Pages
+@use 'pages/menu-page';
+@use 'pages/news-page';
+@use 'pages/news-post';
+@use 'pages/contact-page';
